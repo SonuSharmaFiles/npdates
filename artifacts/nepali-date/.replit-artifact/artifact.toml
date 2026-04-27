@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Nepali Date Converter"
+version = "1.0.0"
+id = "artifacts/nepali-date"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25646
+
+[services.development]
+run = "pnpm --filter @workspace/nepali-date run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/nepali-date", "run", "build" ]
+publicDir = "artifacts/nepali-date/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25646"
+BASE_PATH = "/"

@@ -1,0 +1,151 @@
+Build a modern, advanced, SEO-first web application inspired by https://www.bolpatra.gov.np/egp/openDateConverter
+ — but significantly better in UI, features, performance, and search visibility.
+
+Goal
+
+Create the best Nepali Date Converter (BS ↔ AD) website on the internet with:
+
+Premium modern UI
+Accurate conversion engine
+Tool-suite architecture
+Strong organic SEO growth potential
+Fast, scalable, production-grade performance
+Core Features
+
+Build:
+
+BS to AD converter
+AD to BS converter
+Nepali calendar
+Age calculator
+Date difference calculator
+Fiscal year converter
+Festival / holiday calendar
+Conversion history
+Copy/share results
+Real-time conversion
+SEO (Very Important — Treat As Core Feature)
+
+Build this as an SEO powerhouse, not just a tool.
+
+Programmatic SEO Pages
+
+Generate indexable pages for:
+
+BS to AD date combinations
+AD to BS date combinations
+Example pages:
+Convert 2082 Baisakh 15 to AD
+What is today’s Nepali date?
+2026 in Bikram Sambat
+Nepali fiscal year converter
+Dashain date 2083
+
+Create thousands of scalable search pages.
+
+On-Page SEO
+
+Implement:
+
+SEO-friendly URLs
+Examples:
+/bs-to-ad-converter
+/ad-to-bs-converter
+/nepali-calendar-2082
+/today-nepali-date
+
+Include:
+
+Dynamic title tags
+Meta descriptions
+Open Graph tags
+Twitter cards
+Canonical tags
+Breadcrumb schema
+FAQ schema
+Tool schema / structured data
+Internal linking system
+Content SEO Layer
+
+Create informational content sections below tools:
+
+How BS to AD conversion works
+What is Bikram Sambat?
+Difference between BS and AD
+Nepali calendar guide
+FAQ blocks targeting long-tail keywords
+
+Optimize for featured snippets.
+
+Technical SEO
+
+Must include:
+
+Server-side rendering or static generation (Next.js preferred)
+Extremely fast Core Web Vitals
+Lazy loading
+Schema markup
+XML sitemap auto generation
+robots.txt
+Indexing-friendly architecture
+Mobile-first SEO
+Image optimization
+Accessibility optimization
+Proper heading hierarchy (H1-H3)
+
+Target green Lighthouse scores.
+
+Blog / Traffic Engine
+
+Add blog module for ranking articles:
+
+Nepali festivals dates
+Government form date conversion guides
+Nepali calendar guides
+Date-related calculators
+Financial year in Nepal
+
+Build topical authority.
+
+Modern UI/UX
+
+Use premium interface inspired by:
+
+Stripe
+Linear
+Notion
+
+Include:
+
+Glassmorphism accents
+Smooth animations
+Beautiful responsive layout
+Dark/light mode
+Elegant typography
+SaaS-quality dashboard feel
+
+Avoid outdated government portal design.
+
+Extra Growth Features
+
+Add:
+
+Public conversion API
+Embeddable date converter widget
+Backlink-worthy free tools section
+Compare dates tool
+“Today in Nepali date” live widget
+PWA support
+Deliverables
+
+Generate:
+
+Full product architecture
+SEO architecture
+Modern UI mockup
+Production-ready implementation
+Strategy to outrank existing Nepali date converter websites
+
+Important:
+Do not make a basic utility tool.
+Build an SEO-driven product designed to dominate search results.

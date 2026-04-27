@@ -3,13 +3,17 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: Public Nepali Date Converter API. Convert between Bikram Sambat (BS) and Anno Domini (AD), get today's Nepali date, list calendar months, festivals, and fiscal year mappings.
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: convert
+    description: Date conversion endpoints
+  - name: calendar
+    description: Calendar and festival endpoints
 paths:
   /healthz:
     get:
@@ -24,6 +28,181 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /convert/bs-to-ad:
+    get:
+      operationId: convertBsToAd
+      tags: [convert]
+      summary: Convert a Bikram Sambat date to AD
+      parameters:
+        - in: query
+          name: year
+          required: true
+          schema:
+            type: integer
+            minimum: 1970
+            maximum: 2100
+        - in: query
+          name: month
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 12
+        - in: query
+          name: day
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 32
+      responses:
+        "200":
+          description: Converted date
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConversionResult"
+        "400":
+          description: Invalid date
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
+  /convert/ad-to-bs:
+    get:
+      operationId: convertAdToBs
+      tags: [convert]
+      summary: Convert an AD (Gregorian) date to Bikram Sambat
+      parameters:
+        - in: query
+          name: year
+          required: true
+          schema:
+            type: integer
+            minimum: 1913
+            maximum: 2043
+        - in: query
+          name: month
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 12
+        - in: query
+          name: day
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 31
+      responses:
+        "200":
+          description: Converted date
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConversionResult"
+        "400":
+          description: Invalid date
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
+  /today:
+    get:
+      operationId: getToday
+      tags: [convert]
+      summary: Get today's Nepali date
+      description: Returns today's date in both BS and AD using Asia/Kathmandu timezone.
+      responses:
+        "200":
+          description: Today's date
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConversionResult"
+
+  /calendar/{year}/{month}:
+    get:
+      operationId: getCalendarMonth
+      tags: [calendar]
+      summary: Get a Bikram Sambat calendar month grid
+      parameters:
+        - in: path
+          name: year
+          required: true
+          schema:
+            type: integer
+            minimum: 1970
+            maximum: 2100
+        - in: path
+          name: month
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 12
+      responses:
+        "200":
+          description: Month grid
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CalendarMonth"
+        "400":
+          description: Invalid month
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+
+  /festivals/{year}:
+    get:
+      operationId: listFestivals
+      tags: [calendar]
+      summary: List festivals and holidays for a Bikram Sambat year
+      parameters:
+        - in: path
+          name: year
+          required: true
+          schema:
+            type: integer
+            minimum: 2078
+            maximum: 2090
+      responses:
+        "200":
+          description: Festivals
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Festival"
+
+  /fiscal-year/{year}:
+    get:
+      operationId: getFiscalYear
+      tags: [calendar]
+      summary: Get Nepali fiscal year details by start BS year
+      parameters:
+        - in: path
+          name: year
+          required: true
+          schema:
+            type: integer
+            minimum: 2070
+            maximum: 2095
+      responses:
+        "200":
+          description: Fiscal year window
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FiscalYear"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +213,193 @@ components:
       required:
         - status
 
+    ApiError:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+
+    NepaliDate:
+      type: object
+      properties:
+        year:
+          type: integer
+        month:
+          type: integer
+        day:
+          type: integer
+        monthName:
+          type: string
+        monthNameNepali:
+          type: string
+        weekday:
+          type: integer
+          description: 0 = Sunday, 6 = Saturday
+        weekdayName:
+          type: string
+        weekdayNameNepali:
+          type: string
+        formatted:
+          type: string
+          description: Human readable e.g. "Baisakh 15, 2082"
+        formattedNepali:
+          type: string
+      required:
+        - year
+        - month
+        - day
+        - monthName
+        - monthNameNepali
+        - weekday
+        - weekdayName
+        - weekdayNameNepali
+        - formatted
+        - formattedNepali
+
+    GregorianDate:
+      type: object
+      properties:
+        year:
+          type: integer
+        month:
+          type: integer
+        day:
+          type: integer
+        monthName:
+          type: string
+        weekday:
+          type: integer
+        weekdayName:
+          type: string
+        iso:
+          type: string
+          description: ISO date string YYYY-MM-DD
+        formatted:
+          type: string
+      required:
+        - year
+        - month
+        - day
+        - monthName
+        - weekday
+        - weekdayName
+        - iso
+        - formatted
+
+    ConversionResult:
+      type: object
+      properties:
+        bs:
+          $ref: "#/components/schemas/NepaliDate"
+        ad:
+          $ref: "#/components/schemas/GregorianDate"
+      required:
+        - bs
+        - ad
+
+    CalendarDay:
+      type: object
+      properties:
+        bsYear:
+          type: integer
+        bsMonth:
+          type: integer
+        bsDay:
+          type: integer
+        adIso:
+          type: string
+        weekday:
+          type: integer
+        isHoliday:
+          type: boolean
+        festival:
+          type: ["string", "null"]
+      required:
+        - bsYear
+        - bsMonth
+        - bsDay
+        - adIso
+        - weekday
+        - isHoliday
+        - festival
+
+    CalendarMonth:
+      type: object
+      properties:
+        year:
+          type: integer
+        month:
+          type: integer
+        monthName:
+          type: string
+        monthNameNepali:
+          type: string
+        daysInMonth:
+          type: integer
+        startWeekday:
+          type: integer
+        days:
+          type: array
+          items:
+            $ref: "#/components/schemas/CalendarDay"
+      required:
+        - year
+        - month
+        - monthName
+        - monthNameNepali
+        - daysInMonth
+        - startWeekday
+        - days
+
+    Festival:
+      type: object
+      properties:
+        name:
+          type: string
+        nameNepali:
+          type: string
+        bsYear:
+          type: integer
+        bsMonth:
+          type: integer
+        bsDay:
+          type: integer
+        adIso:
+          type: string
+        category:
+          type: string
+          description: e.g. "Religious", "National", "Regional"
+        isPublicHoliday:
+          type: boolean
+      required:
+        - name
+        - nameNepali
+        - bsYear
+        - bsMonth
+        - bsDay
+        - adIso
+        - category
+        - isPublicHoliday
+
+    FiscalYear:
+      type: object
+      properties:
+        label:
+          type: string
+          description: e.g. "FY 2082/83"
+        startBs:
+          $ref: "#/components/schemas/NepaliDate"
+        endBs:
+          $ref: "#/components/schemas/NepaliDate"
+        startAd:
+          $ref: "#/components/schemas/GregorianDate"
+        endAd:
+          $ref: "#/components/schemas/GregorianDate"
+      required:
+        - label
+        - startBs
+        - endBs
+        - startAd
+        - endAd
