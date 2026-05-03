@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const publicDir = path.join(root, "public");
-const SITE = process.env.SITE_URL || "https://npdates.app";
+const SITE = process.env.SITE_URL || "https://sonusharmafiles.github.io/npdates";
 
 // BS calendar shape — kept inline so this script has no TypeScript dependencies.
 const BS_MONTH_DAYS = {
