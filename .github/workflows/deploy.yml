@@ -56,7 +56,7 @@ jobs:
         env:
           BASE_PATH: /npdates/
         run: |
-          pnpm run build
+          pnpm --filter @workspace/nepali-date run build
           # Create 404.html for SPA routing on GitHub Pages
           cp artifacts/nepali-date/dist/public/index.html artifacts/nepali-date/dist/public/404.html
 
