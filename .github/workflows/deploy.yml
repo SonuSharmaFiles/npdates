@@ -54,7 +54,7 @@ jobs:
 
       - name: Build Frontend
         env:
-          BASE_PATH: /npdates/
+          BASE_PATH: /
         run: |
           pnpm --filter @workspace/nepali-date run build
           # Create 404.html for SPA routing on GitHub Pages
