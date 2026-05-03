@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
-import { getTodayInKathmandu, getFiscalYear } from "@/lib/converter";
+import { Seo } from "@/components/Seo";
+import { getTodayInKathmandu, getFiscalYear, BS_MONTHS_EN } from "@/lib/converter";
 import { festivalsForYear } from "@/data/festivals";
 import { useState, useEffect } from "react";
 import { CalendarDays, Clock, MapPin, Sunrise } from "lucide-react";
@@ -7,12 +7,17 @@ import { CalendarDays, Clock, MapPin, Sunrise } from "lucide-react";
 export default function Today() {
   const [time, setTime] = useState<string>("");
   const today = getTodayInKathmandu();
-  const fiscalYear = getFiscalYear(today.bs.year);
-  
-  // Find upcoming festival
+
+  // Nepali fiscal year starts on 1 Shrawan (month 4); months 1-3 belong to the previous FY
+  const fyStart = today.bs.month >= 4 ? today.bs.year : today.bs.year - 1;
+  const fiscalYear = getFiscalYear(fyStart);
+
+  // Find the next upcoming festival in the current BS year
   const festivals = festivalsForYear(today.bs.year);
-  const upcoming = festivals.find(f => 
-    f.bsMonth > today.bs.month || (f.bsMonth === today.bs.month && f.bsDay >= today.bs.day)
+  const upcoming = festivals.find(
+    (f) =>
+      f.bsMonth > today.bs.month ||
+      (f.bsMonth === today.bs.month && f.bsDay >= today.bs.day),
   );
 
   useEffect(() => {
@@ -20,18 +25,25 @@ export default function Today() {
       const now = new Date();
       const utcMs = now.getTime() + now.getTimezoneOffset() * 60_000;
       const kathmandu = new Date(utcMs + 5.75 * 60 * 60_000);
-      setTime(kathmandu.toLocaleTimeString('en-US', { hour12: true, hour: 'numeric', minute: '2-digit', second: '2-digit' }));
+      setTime(
+        kathmandu.toLocaleTimeString("en-US", {
+          hour12: true,
+          hour: "numeric",
+          minute: "2-digit",
+          second: "2-digit",
+        }),
+      );
     }, 1000);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <>
-      <Helmet>
-        <title>Today's Nepali Date | npdates</title>
-        <meta name="description" content={`Today's Nepali date is ${today.bs.formattedNepali} (${today.bs.formatted}). View the current Bikram Sambat date, time, and upcoming festivals in Nepal.`} />
-        <link rel="canonical" href="https://npdates.app/today-nepali-date" />
-      </Helmet>
+      <Seo
+        title="Today's Nepali Date | npdates"
+        description={`Today's Nepali date is ${today.bs.formattedNepali} (${today.bs.formatted}). View the current Bikram Sambat date, time, and upcoming festivals in Nepal.`}
+        path="/today-nepali-date"
+      />
 
       <div className="container mx-auto px-4 py-12 max-w-5xl">
         <h1 className="font-serif text-3xl font-bold mb-8">Today in Nepal</h1>
@@ -41,15 +53,17 @@ export default function Today() {
             <div className="absolute top-0 right-0 p-6 opacity-5 text-primary">
               <Sunrise className="w-48 h-48" />
             </div>
-            
+
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
                 <MapPin className="w-4 h-4" />
                 Asia/Kathmandu Time
               </div>
-              
+
               <div className="space-y-2 mb-8">
-                <div className="text-xl text-muted-foreground font-medium">{today.bs.weekdayNameNepali} / {today.bs.weekdayName}</div>
+                <div className="text-xl text-muted-foreground font-medium">
+                  {today.bs.weekdayNameNepali} / {today.bs.weekdayName}
+                </div>
                 <div className="font-serif text-5xl md:text-7xl font-bold text-foreground tracking-tight">
                   {today.bs.day} {today.bs.monthName}
                 </div>
@@ -59,8 +73,12 @@ export default function Today() {
               </div>
 
               <div className="pt-8 border-t border-border/50">
-                <div className="text-lg text-muted-foreground">Gregorian Equivalent</div>
-                <div className="text-2xl font-medium mt-1">{today.ad.formatted}</div>
+                <div className="text-lg text-muted-foreground">
+                  Gregorian Equivalent
+                </div>
+                <div className="text-2xl font-medium mt-1">
+                  {today.ad.formatted}
+                </div>
               </div>
             </div>
           </div>
@@ -91,13 +109,13 @@ export default function Today() {
 
             {upcoming && (
               <div className="bg-primary border-primary border text-primary-foreground rounded-2xl p-6 shadow-sm hover-elevate">
-                <h3 className="font-medium opacity-90 mb-4 uppercase tracking-wider text-xs">Upcoming Festival</h3>
+                <h3 className="font-medium opacity-90 mb-4 uppercase tracking-wider text-xs">
+                  Upcoming Festival
+                </h3>
                 <div className="text-2xl font-bold font-serif mb-2">
                   {upcoming.nameNepali}
                 </div>
-                <div className="text-lg opacity-90 mb-1">
-                  {upcoming.name}
-                </div>
+                <div className="text-lg opacity-90 mb-1">{upcoming.name}</div>
                 <div className="text-sm opacity-80 mt-4 bg-black/20 inline-block px-3 py-1 rounded-full">
                   {upcoming.bsDay} {BS_MONTHS_EN[upcoming.bsMonth - 1]}
                 </div>
@@ -109,6 +127,3 @@ export default function Today() {
     </>
   );
 }
-
-// Need to import BS_MONTHS_EN since I used it above
-import { BS_MONTHS_EN } from "@/lib/converter";

@@ -17,10 +17,14 @@ export function BsDateSelector({ date, onChange }: BsDateSelectorProps) {
       if (date.day > days) {
         onChange({ ...date, day: days });
       }
-    } catch (e) {
+    } catch {
       // Ignore if out of bounds during transition
     }
-  }, [date.year, date.month]);
+    // onChange is intentionally excluded: it's stable by convention (parent
+    // should wrap in useCallback), and including it would cause infinite loops
+    // when the parent re-renders without memoization.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [date.year, date.month, date.day]);
 
   const years = Array.from({ length: BS_MAX_YEAR - BS_MIN_YEAR + 1 }, (_, i) => BS_MAX_YEAR - i);
   const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);

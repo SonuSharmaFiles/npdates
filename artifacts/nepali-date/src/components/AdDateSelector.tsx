@@ -11,16 +11,18 @@ export function AdDateSelector({ date, onChange }: AdDateSelectorProps) {
   const [daysInMonth, setDaysInMonth] = useState(31);
 
   useEffect(() => {
-    // Simple leap year calculation for AD
-    const isLeap = (date.year % 4 === 0 && date.year % 100 !== 0) || date.year % 400 === 0;
-    const daysPerMonth = [31, isLeap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    const days = daysPerMonth[date.month - 1] || 31;
-    
+    const isLeap =
+      (date.year % 4 === 0 && date.year % 100 !== 0) || date.year % 400 === 0;
+    const daysPerMonth = [
+      31, isLeap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
+    ];
+    const days = daysPerMonth[date.month - 1] ?? 31;
     setDaysInMonth(days);
     if (date.day > days) {
       onChange({ ...date, day: days });
     }
-  }, [date.year, date.month]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [date.year, date.month, date.day]);
 
   // Support typical AD dates mapping to our BS range (~1913 to 2043)
   const currentYear = new Date().getFullYear();

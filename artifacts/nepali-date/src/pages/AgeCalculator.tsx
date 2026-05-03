@@ -33,16 +33,21 @@ export default function AgeCalculator() {
         birthFormatted = `${conv.bs.formatted} (${conv.ad.formatted})`;
       } else {
         birthIso = `${ad.year}-${String(ad.month).padStart(2, "0")}-${String(ad.day).padStart(2, "0")}`;
-        birthFormatted = `${ad.year}-${ad.month}-${ad.day}`;
+        birthFormatted = new Date(birthIso + "T00:00:00Z").toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
       }
       const age = ageFromAd(birthIso);
       const totalWeeks = Math.floor(age.totalDays / 7);
       const totalHours = age.totalDays * 24;
       const nextBirthday = new Date(birthIso + "T00:00:00Z");
       nextBirthday.setUTCFullYear(nextBirthday.getUTCFullYear() + age.years + 1);
-      const todayDate = new Date();
+      // Use UTC midnight for today so the subtraction is day-accurate
+      const todayUtc = new Date(new Date().toISOString().slice(0, 10) + "T00:00:00Z");
       const daysToBirthday = Math.ceil(
-        (nextBirthday.getTime() - todayDate.getTime()) / 86400000,
+        (nextBirthday.getTime() - todayUtc.getTime()) / 86400000,
       );
       return { age, birthFormatted, totalWeeks, totalHours, daysToBirthday };
     } catch {

@@ -6,7 +6,6 @@ import { bsToAd, adToBs, getTodayInKathmandu, ConversionResult, toNepaliNumeral 
 import { Button } from "@/components/ui/button";
 import { ArrowRightLeft, Copy, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
-import { useConvertBsToAd, getConvertBsToAdQueryKey } from "@workspace/api-client-react";
 
 type Direction = "BS_TO_AD" | "AD_TO_BS";
 

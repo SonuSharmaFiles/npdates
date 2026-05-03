@@ -21,7 +21,8 @@ const router: IRouter = Router();
 router.get("/calendar/:year/:month", (req, res): void => {
   const parsed = GetCalendarMonthParams.safeParse(req.params);
   if (!parsed.success) {
-    res.status(400).json({ error: parsed.error.message });
+    const msg = parsed.error.issues.map((i) => i.message).join("; ");
+    res.status(400).json({ error: msg });
     return;
   }
   try {
@@ -48,7 +49,8 @@ router.get("/calendar/:year/:month", (req, res): void => {
 router.get("/festivals/:year", (req, res): void => {
   const parsed = ListFestivalsParams.safeParse(req.params);
   if (!parsed.success) {
-    res.status(400).json({ error: parsed.error.message });
+    const msg = parsed.error.issues.map((i) => i.message).join("; ");
+    res.status(400).json({ error: msg });
     return;
   }
   const list = festivalsForYearWithAd(parsed.data.year);
@@ -58,7 +60,8 @@ router.get("/festivals/:year", (req, res): void => {
 router.get("/fiscal-year/:year", (req, res): void => {
   const parsed = GetFiscalYearParams.safeParse(req.params);
   if (!parsed.success) {
-    res.status(400).json({ error: parsed.error.message });
+    const msg = parsed.error.issues.map((i) => i.message).join("; ");
+    res.status(400).json({ error: msg });
     return;
   }
   try {

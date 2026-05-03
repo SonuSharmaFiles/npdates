@@ -46,6 +46,14 @@ const BLOG_SLUGS = [
   "convert-government-form-dates",
   "list-of-public-holidays-nepal",
   "nepali-months-in-order",
+  "nepali-new-year-2083",
+  "nepali-calendar-2083-guide",
+  "maghe-sankranti-explained",
+  "how-to-convert-date-of-birth-bs-to-ad",
+  "teej-festival-dates-2083",
+  "nepali-patro-guide",
+  "bs-date-for-visa-application",
+  "nepali-date-difference-calculator",
 ];
 
 function urlEntry(loc, priority = 0.7, changefreq = "monthly", lastmod) {

@@ -30,7 +30,7 @@ export default function BlogPost() {
     publisher: {
       "@type": "Organization",
       name: "npdates",
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/og-image.png` },
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/opengraph.jpg` },
     },
     mainEntityOfPage: {
       "@type": "WebPage",

@@ -79,8 +79,10 @@ export default function ApiDocs() {
           </p>
           <div className="mt-4 inline-flex items-center gap-2 text-xs">
             <span
-              className={`inline-block h-2 w-2 rounded-full ${
-                health.data?.status === "ok" ? "bg-green-500" : "bg-muted-foreground"
+              className={`inline-block h-2 w-2 rounded-full transition-colors ${
+                health.data?.status === "ok"
+                  ? "bg-[#22C55E]"
+                  : "bg-muted-foreground/50"
               }`}
             />
             <span className="text-muted-foreground">

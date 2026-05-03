@@ -13,7 +13,8 @@ const router: IRouter = Router();
 router.get("/convert/bs-to-ad", (req, res): void => {
   const parsed = ConvertBsToAdQueryParams.safeParse(req.query);
   if (!parsed.success) {
-    res.status(400).json({ error: parsed.error.message });
+    const msg = parsed.error.issues.map((i) => i.message).join("; ");
+    res.status(400).json({ error: msg });
     return;
   }
   try {
@@ -29,7 +30,8 @@ router.get("/convert/bs-to-ad", (req, res): void => {
 router.get("/convert/ad-to-bs", (req, res): void => {
   const parsed = ConvertAdToBsQueryParams.safeParse(req.query);
   if (!parsed.success) {
-    res.status(400).json({ error: parsed.error.message });
+    const msg = parsed.error.issues.map((i) => i.message).join("; ");
+    res.status(400).json({ error: msg });
     return;
   }
   try {

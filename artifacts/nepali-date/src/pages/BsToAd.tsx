@@ -1,25 +1,27 @@
-import { Helmet } from "react-helmet-async";
+import { Seo } from "@/components/Seo";
 import { ConverterCard } from "@/components/ConverterCard";
 import { Link } from "wouter";
 
 export default function BsToAd() {
   return (
     <>
-      <Helmet>
-        <title>BS to AD Converter | Nepali Date to Gregorian Converter</title>
-        <meta name="description" content="Convert Bikram Sambat (BS) dates to Gregorian (AD) instantly and accurately. Fast, reliable Nepali date converter with historical accuracy." />
-        <link rel="canonical" href="https://npdates.app/bs-to-ad-converter" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "BS to AD Converter",
-            "url": "https://npdates.app/bs-to-ad-converter",
-            "description": "Convert Bikram Sambat (BS) to Gregorian (AD) dates.",
-            "applicationCategory": "UtilitiesApplication"
-          })}
-        </script>
-      </Helmet>
+      <Seo
+        title="BS to AD Converter | Nepali Date to Gregorian Converter"
+        description="Convert Bikram Sambat (BS) dates to Gregorian (AD) instantly and accurately. Fast, reliable Nepali date converter with historical accuracy."
+        path="/bs-to-ad-converter"
+        breadcrumb={[
+          { name: "Home", url: "/" },
+          { name: "BS to AD Converter", url: "/bs-to-ad-converter" },
+        ]}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "BS to AD Converter",
+          url: "https://npdates.app/bs-to-ad-converter",
+          description: "Convert Bikram Sambat (BS) to Gregorian (AD) dates.",
+          applicationCategory: "UtilitiesApplication",
+        }}
+      />
 
       <div className="container mx-auto px-4 py-12 md:py-20 max-w-4xl">
         <div className="mb-10">

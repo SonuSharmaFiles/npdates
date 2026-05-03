@@ -22,7 +22,7 @@ export function Seo({
   title,
   description,
   path,
-  ogImage = "/og-image.png",
+  ogImage = "/opengraph.jpg",
   ogType = "website",
   noIndex,
   breadcrumb,

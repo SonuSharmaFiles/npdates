@@ -3,8 +3,6 @@ import { Link } from "wouter";
 import { Seo } from "@/components/Seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CalendarGrid } from "@/components/CalendarGrid";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   BS_MONTHS_EN,
   BS_MAX_YEAR,
@@ -34,7 +32,12 @@ export default function NepaliCalendar() {
       }
     } else setMonth(month + 1);
   };
+  const goToday = () => {
+    setYear(today.bs.year);
+    setMonth(today.bs.month);
+  };
 
+  const isCurrentMonth = year === today.bs.year && month === today.bs.month;
   const fests = festivalsForYear(year).filter((f) => f.bsMonth === month);
 
   return (
@@ -64,14 +67,12 @@ export default function NepaliCalendar() {
               The official Bikram Sambat calendar with festivals and Gregorian (AD) mappings.
             </p>
           </div>
+          {/* Month/year selectors for quick jumps */}
           <div className="flex items-center gap-2">
-            <Button variant="outline" size="icon" onClick={goPrev}>
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
             <select
               value={month}
               onChange={(e) => setMonth(Number(e.target.value))}
-              className="h-9 rounded-md border bg-background px-3 text-sm"
+              className="h-9 rounded-lg border bg-background px-3 text-sm font-medium focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
             >
               {BS_MONTHS_EN.map((m, i) => (
                 <option key={m} value={i + 1}>
@@ -82,7 +83,7 @@ export default function NepaliCalendar() {
             <select
               value={year}
               onChange={(e) => setYear(Number(e.target.value))}
-              className="h-9 rounded-md border bg-background px-3 text-sm"
+              className="h-9 rounded-lg border bg-background px-3 text-sm font-medium focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
             >
               {Array.from({ length: BS_MAX_YEAR - BS_MIN_YEAR + 1 }, (_, i) => BS_MIN_YEAR + i).map(
                 (y) => (
@@ -92,14 +93,18 @@ export default function NepaliCalendar() {
                 ),
               )}
             </select>
-            <Button variant="outline" size="icon" onClick={goNext}>
-              <ChevronRight className="h-4 w-4" />
-            </Button>
           </div>
         </header>
 
         <div className="grid lg:grid-cols-[1fr_300px] gap-8">
-          <CalendarGrid year={year} month={month} />
+          <CalendarGrid
+            year={year}
+            month={month}
+            onPrev={goPrev}
+            onNext={goNext}
+            onToday={goToday}
+            isCurrentMonth={isCurrentMonth}
+          />
           <aside className="space-y-4">
             <div className="border rounded-2xl p-5 bg-card">
               <h2 className="font-semibold mb-3">Festivals this month</h2>

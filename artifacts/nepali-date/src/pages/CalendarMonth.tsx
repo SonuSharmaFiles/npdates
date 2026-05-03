@@ -1,4 +1,4 @@
-import { useRoute, Link } from "wouter";
+import { useRoute, Link, useLocation } from "wouter";
 import { Seo } from "@/components/Seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CalendarGrid } from "@/components/CalendarGrid";
@@ -10,11 +10,13 @@ import {
   bsToAd,
   getDaysInBsMonth,
   toNepaliNumeral,
+  getTodayInKathmandu,
 } from "@/lib/converter";
 import { festivalsForYear } from "@/data/festivals";
 
 export default function CalendarMonth() {
   const [, params] = useRoute("/calendar/:year/:month");
+  const [, navigate] = useLocation();
   const year = Number(params?.year);
   const month = Number(params?.month);
   if (
@@ -42,6 +44,21 @@ export default function CalendarMonth() {
   const prevYear = month === 1 ? year - 1 : year;
   const nextMonth = month === 12 ? 1 : month + 1;
   const nextYear = month === 12 ? year + 1 : year;
+
+  const today = getTodayInKathmandu();
+  const isCurrentMonth = year === today.bs.year && month === today.bs.month;
+
+  const goPrev = () => {
+    if (month === 1 && year <= BS_MIN_YEAR) return;
+    navigate(`/calendar/${prevYear}/${prevMonth}`);
+  };
+  const goNext = () => {
+    if (month === 12 && year >= BS_MAX_YEAR) return;
+    navigate(`/calendar/${nextYear}/${nextMonth}`);
+  };
+  const goToday = () => {
+    navigate(`/calendar/${today.bs.year}/${today.bs.month}`);
+  };
 
   return (
     <>
@@ -81,7 +98,15 @@ export default function CalendarMonth() {
         </header>
 
         <div className="grid lg:grid-cols-[1fr_320px] gap-8">
-          <CalendarGrid year={year} month={month} showHeading={false} />
+          <CalendarGrid
+            year={year}
+            month={month}
+            showHeading={false}
+            onPrev={goPrev}
+            onNext={goNext}
+            onToday={goToday}
+            isCurrentMonth={isCurrentMonth}
+          />
           <aside className="space-y-4">
             <div className="border rounded-2xl p-5 bg-card">
               <h2 className="font-semibold mb-3">Festivals & holidays</h2>

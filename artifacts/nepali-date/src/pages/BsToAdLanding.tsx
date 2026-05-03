@@ -4,9 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import {
   bsToAd,
   BS_MONTHS_EN,
-  BS_MONTHS_NP,
   getDaysInBsMonth,
-  toNepaliNumeral,
 } from "@/lib/converter";
 import { festivalForBsDate } from "@/data/festivals";
 import { Button } from "@/components/ui/button";
@@ -248,6 +246,3 @@ export default function BsToAdLanding() {
   );
 }
 
-// satisfy potentially unused imports
-void BS_MONTHS_NP;
-void toNepaliNumeral;

@@ -259,6 +259,252 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Many Nepalis learn the months as a single rhythmic chant: "Baisakh, Jestha, Ashadh, Shrawan, Bhadra, Ashwin, Kartik, Mangsir, Poush, Magh, Falgun, Chaitra". Read it aloud once and the order sticks.</p>
 `,
   },
+  {
+    slug: "nepali-new-year-2083",
+    title: "Nepali New Year 2083 BS — date, traditions and what to expect",
+    description: "Nepali New Year 2083 (Navabarsha) falls on 14 April 2026 AD. Learn the date, how it is celebrated across Nepal, and the significance of 1 Baisakh.",
+    readingMinutes: 5,
+    publishedIso: "2026-01-10",
+    body: `
+<h2>When is Nepali New Year 2083?</h2>
+<p>Nepali New Year 2083 BS falls on <strong>14 April 2026 AD</strong> (1 Baisakh 2083 BS). This date is a public holiday across Nepal and marks the start of a new Bikram Sambat year. In the Gregorian calendar it always lands between 12 and 15 April, though the exact day shifts slightly each year.</p>
+
+<h2>How 1 Baisakh is celebrated</h2>
+<p>Families gather for special meals, new clothes are worn, and elders receive respect through <em>dhog</em> (touching of feet). The streets of Kathmandu fill with processions; Dharahara-area and Basantapur Durbar Square attract large crowds. Radio and television broadcast New Year greetings in Nepali, and newspapers publish the new annual patro (calendar).</p>
+
+<h2>Regional traditions</h2>
+<p>In the hills, communities play traditional music and dance the <em>maruni</em> and <em>sorathi</em>. In the Terai, the new year overlaps with Maithili and Bhojpuri cultural festivals. In the mountains, it is a time for the community to plan the farming season, as the monsoon is six to eight weeks away.</p>
+
+<h2>Baisakh in the fiscal year</h2>
+<p>Although it opens the new calendar year, Baisakh sits in the <em>last quarter</em> of the fiscal year (which ends in Ashadh). Government offices and schools are in the final stretch of the FY 2082/83 budget cycle during this period.</p>
+
+<h2>Converting 1 Baisakh 2083 to AD</h2>
+<p>Use the <a href="/bs-to-ad-converter">BS to AD converter</a> to confirm the exact AD date or look up any other day in the new year. The full monthly calendar is available on the <a href="/nepali-calendar-2083">2083 calendar page</a>.</p>
+`,
+  },
+  {
+    slug: "nepali-calendar-2083-guide",
+    title: "Nepali calendar 2083 BS — month-by-month guide, festivals and holidays",
+    description: "Everything you need for the year 2083 BS: month lengths, major festivals, fiscal year window, public holidays and key conversion dates.",
+    readingMinutes: 6,
+    publishedIso: "2026-01-20",
+    body: `
+<h2>2083 BS at a glance</h2>
+<p>Year 2083 of the Bikram Sambat calendar begins on <strong>14 April 2026 AD</strong> and runs to <strong>13 April 2027 AD</strong>. It is the year that follows 2082 in the sequence, and like every BS year it is divided into twelve months of varying lengths.</p>
+
+<h2>Month lengths in 2083 BS</h2>
+<table>
+<thead><tr><th>Month</th><th>Days</th><th>Approx AD window</th></tr></thead>
+<tbody>
+<tr><td>Baisakh</td><td>31</td><td>14 Apr – 14 May 2026</td></tr>
+<tr><td>Jestha</td><td>31</td><td>15 May – 14 Jun 2026</td></tr>
+<tr><td>Ashadh</td><td>32</td><td>15 Jun – 16 Jul 2026</td></tr>
+<tr><td>Shrawan</td><td>31</td><td>17 Jul – 16 Aug 2026</td></tr>
+<tr><td>Bhadra</td><td>31</td><td>17 Aug – 16 Sep 2026</td></tr>
+<tr><td>Ashwin</td><td>31</td><td>17 Sep – 17 Oct 2026</td></tr>
+<tr><td>Kartik</td><td>30</td><td>18 Oct – 16 Nov 2026</td></tr>
+<tr><td>Mangsir</td><td>29</td><td>17 Nov – 15 Dec 2026</td></tr>
+<tr><td>Poush</td><td>30</td><td>16 Dec 2026 – 14 Jan 2027</td></tr>
+<tr><td>Magh</td><td>29</td><td>15 Jan – 12 Feb 2027</td></tr>
+<tr><td>Falgun</td><td>30</td><td>13 Feb – 14 Mar 2027</td></tr>
+<tr><td>Chaitra</td><td>30</td><td>15 Mar – 13 Apr 2027</td></tr>
+</tbody>
+</table>
+
+<h2>Fiscal year in 2083 BS</h2>
+<p>FY 2083/84 runs from <strong>1 Shrawan 2083</strong> (17 Jul 2026 AD) to the end of Ashadh 2084 (around July 2027 AD). The first three months of 2083 BS (Baisakh–Ashadh) belong to the previous FY 2082/83.</p>
+
+<h2>Key festivals in 2083 BS</h2>
+<ul>
+<li><strong>Nepali New Year</strong> — 1 Baisakh 2083 (14 Apr 2026)</li>
+<li><strong>Buddha Jayanti</strong> — Baisakh Purnima</li>
+<li><strong>Republic Day</strong> — 15 Jestha</li>
+<li><strong>Janai Purnima</strong> — Shrawan Purnima</li>
+<li><strong>Krishna Janmashtami</strong> — Bhadra</li>
+<li><strong>Teej</strong> — Bhadra</li>
+<li><strong>Constitution Day</strong> — 3 Ashwin</li>
+<li><strong>Dashain</strong> — Ghatasthapana in Ashwin, Vijaya Dashami in Kartik</li>
+<li><strong>Tihar</strong> — Kartik</li>
+<li><strong>Maghe Sankranti</strong> — 1 Magh</li>
+<li><strong>Maha Shivaratri</strong> — Falgun</li>
+<li><strong>Holi</strong> — Falgun</li>
+</ul>
+
+<p>Browse the full day-by-day layout on the <a href="/nepali-calendar-2083">2083 calendar page</a>.</p>
+`,
+  },
+  {
+    slug: "maghe-sankranti-explained",
+    title: "Maghe Sankranti explained: Nepal's winter harvest festival on 1 Magh",
+    description: "Maghe Sankranti falls on 1 Magh every year (mid-January AD). Learn its significance, traditional foods, rituals, and the exact AD date for 2082–2084 BS.",
+    readingMinutes: 4,
+    publishedIso: "2026-01-14",
+    body: `
+<h2>What is Maghe Sankranti?</h2>
+<p><strong>Maghe Sankranti</strong> (माघे संक्रान्ति) is a major Hindu festival in Nepal observed on <strong>1 Magh</strong>, the tenth month of the Bikram Sambat calendar. It marks the sun's transition into Capricorn (Makara), and in the Gregorian calendar it typically falls on <strong>14 or 15 January</strong>.</p>
+
+<h2>Religious significance</h2>
+<p>According to Hindu belief, the sun moves from the southern hemisphere to the northern on this day — a shift called <em>Uttarayan</em>. It signals the end of the inauspicious period (<em>Dakshinayan</em>) and the beginning of a spiritually auspicious time. Sacred rivers, especially the Triveni at Devghat near Chitwan, draw thousands of pilgrims who take ritual baths at dawn.</p>
+
+<h2>Traditional foods</h2>
+<p>Specific foods are mandatory on Maghe Sankranti because they are believed to generate body warmth in winter:</p>
+<ul>
+<li><strong>Til ko laddu</strong> (sesame seed balls) — sesame generates heat</li>
+<li><strong>Chaku</strong> (hardened molasses candy) — a Newar delicacy</li>
+<li><strong>Sweet potato and taro</strong> — boiled and eaten with ghee</li>
+<li><strong>Ghee</strong> — pure clarified butter, considered deeply nourishing</li>
+</ul>
+
+<h2>Exact dates</h2>
+<ul>
+<li>Maghe Sankranti 2082 BS — <strong>15 January 2026 AD</strong></li>
+<li>Maghe Sankranti 2083 BS — <strong>15 January 2027 AD</strong></li>
+</ul>
+
+<h2>Public holiday status</h2>
+<p>Maghe Sankranti is a gazetted public holiday in Nepal. Government offices, banks and most private businesses are closed. The holiday is especially significant in the Terai where the festival overlaps with Makar Mela fairs.</p>
+`,
+  },
+  {
+    slug: "how-to-convert-date-of-birth-bs-to-ad",
+    title: "How to convert your Nepali date of birth from BS to AD — step by step",
+    description: "Passports, visas, international job applications and foreign universities all need your date of birth in AD. Here's how to convert accurately from your BS DOB.",
+    readingMinutes: 5,
+    publishedIso: "2026-02-03",
+    body: `
+<h2>Why you need your DOB in AD</h2>
+<p>Nepal's citizenship certificates, school-leaving certificates (SLC/SEE) and many official documents record dates in Bikram Sambat. However, passports, visa applications, foreign university forms, and most international services require dates in the Gregorian (AD) calendar. Getting the conversion exactly right matters — a single-day error can invalidate a visa or cause identity verification failures.</p>
+
+<h2>The fast method: use the converter</h2>
+<p>The simplest approach is the <a href="/bs-to-ad-converter">BS to AD converter</a>:</p>
+<ol>
+<li>Find your BS date of birth on your citizenship card or birth certificate.</li>
+<li>Enter the year, month and day.</li>
+<li>The converter returns the exact AD date — day, month and year.</li>
+</ol>
+<p>No arithmetic, no risk of the mid-April year-boundary error.</p>
+
+<h2>Common mistake: the year boundary error</h2>
+<p>Many people subtract 56 or 57 from their BS birth year to get the AD year. This works <em>most of the time</em>, but fails for births in Baisakh, Jestha, and Ashadh (months 1–3), where the correct offset is 56, not 57. For example, someone born in Baisakh 2040 BS was born in April 1983 AD — not 1983/1984 from arithmetic alone.</p>
+
+<h2>Verifying against your passport</h2>
+<p>If you already have a Nepali passport, your AD date of birth is printed there. Cross-check the converter result against your passport DOB. If they differ, the passport is the legal record — report the discrepancy to the issuing authority rather than guessing.</p>
+
+<h2>Recording the full date for forms</h2>
+<p>International forms typically want the date in one of these formats: <code>DD/MM/YYYY</code>, <code>MM/DD/YYYY</code>, or <code>YYYY-MM-DD</code> (ISO). Once you have the AD year, month and day from the converter, format accordingly. Never omit leading zeros (e.g. write <code>03/04/1990</code>, not <code>3/4/1990</code>).</p>
+`,
+  },
+  {
+    slug: "teej-festival-dates-2083",
+    title: "Teej 2083 dates, rituals and traditions — everything you need to know",
+    description: "Teej 2083 falls in Bhadra. Learn the exact dates, the three-day ritual sequence (Dar, Teej, Rishi Panchami), fasting rules and what makes Teej unique in Nepal.",
+    readingMinutes: 5,
+    publishedIso: "2026-02-18",
+    body: `
+<h2>What is Teej?</h2>
+<p><strong>Teej</strong> (तीज) is a Hindu festival observed by Nepali and North Indian women, dedicated to Lord Shiva and Goddess Parvati. Women pray for their husbands' long life, health and prosperity. Unmarried women pray for a good husband. It is famous for its daylong fast (<em>nirjala</em> — no food, no water), colourful red saris, song and dance.</p>
+
+<h2>The three days of Teej</h2>
+<ol>
+<li><strong>Dar</strong> (the eve) — Women gather at family homes for a feast the evening before the main fast. Rich foods are eaten to prepare for the following day's fast.</li>
+<li><strong>Teej</strong> (the main day, Haritalika Teej) — Women fast all day, visit Pashupatinath and other Shiva temples, and break the fast only after the moon rises. Red clothing, red bangles and red tika are worn.</li>
+<li><strong>Rishi Panchami</strong> (day after Teej) — Women worship the Saptarishi (seven sages) and perform a ritual bath with 365 blades of <em>datiwan</em> grass.</li>
+</ol>
+
+<h2>Teej 2083 BS dates</h2>
+<p>Teej falls on the third day of the bright fortnight (Shukla Tritiya) of Bhadra. For 2083 BS this places the main Teej day in <strong>late Bhadra 2083</strong> (approximately September 2026 AD). Exact dates depend on the lunar calendar and are confirmed in the annual patro published at the start of the BS year. Check the <a href="/festivals">festivals page</a> for the confirmed date as it approaches.</p>
+
+<h2>Cultural importance</h2>
+<p>Teej is one of the most visible celebrations in Nepal. The Bagmati river banks at Pashupatinath fill with thousands of red-clad women singing traditional Teej songs (<em>teej geet</em>). Television channels broadcast live performances, and the songs — often with witty social commentary — are culturally significant beyond their religious role.</p>
+`,
+  },
+  {
+    slug: "nepali-patro-guide",
+    title: "What is a Nepali Patro? History, structure and how to read it",
+    description: "The Nepali patro is far more than a calendar — it includes tithis, festivals, auspicious times and the full BS date grid. Here's how to read and use it.",
+    readingMinutes: 5,
+    publishedIso: "2026-02-25",
+    body: `
+<h2>What is a Nepali Patro?</h2>
+<p><strong>Patro</strong> (पात्रो) literally means "document" or "record" in Nepali, but in common use it refers to the traditional Nepali almanac-calendar that is published each Baisakh. A patro goes far beyond a simple date grid — it includes the lunar <em>tithi</em>, planetary positions, festival dates, auspicious (<em>shubha</em>) and inauspicious (<em>ashubha</em>) times, <em>yoga</em>, <em>karana</em>, and other Jyotish data.</p>
+
+<h2>Printed vs. digital patro</h2>
+<p>For generations the patro was a small printed booklet, sold at bookshops and temples from 1 Baisakh. Today, apps and websites like npdates serve the same function digitally. The underlying data — month lengths, festival dates, tithi boundaries — is the same; the medium has changed.</p>
+
+<h2>The Bikram Sambat solar grid</h2>
+<p>The core of every patro is the solar-month calendar: each month is laid out in a grid of seven columns (Sunday through Saturday) with BS dates in each cell. Some patros also print the corresponding AD date in smaller type below each BS date. This dual-date layout is the most practical feature for people navigating both systems.</p>
+
+<h2>Tithi — the lunar day</h2>
+<p>Alongside the solar grid, the patro lists the <em>tithi</em> for each day. A tithi is a lunar day, roughly 23.6 hours long, so it does not align with solar days 1:1. One solar day may contain parts of two tithis. Most Hindu religious observances (fasting, weddings, naming ceremonies) are scheduled by tithi, not by the BS solar date, which is why the tithi column matters to millions of users.</p>
+
+<h2>Reading the auspicious time columns</h2>
+<p>Traditional patros mark certain times as <em>Rahu Kalam</em> (inauspicious window attributed to Rahu), <em>Gulika Kalam</em>, and <em>Yamakantam</em>. Important events — surgeries, business launches, travel — are often scheduled around these windows. While these are Jyotish-based, they remain a practical feature that millions of Nepali families consult daily.</p>
+
+<p>Explore the digital patro on the <a href="/nepali-calendar">Nepali calendar page</a>.</p>
+`,
+  },
+  {
+    slug: "bs-date-for-visa-application",
+    title: "Using your Nepali BS date for visa applications abroad — a practical guide",
+    description: "Embassies and visa agencies need your date of birth in AD. Learn exactly how to convert your BS DOB, what format different embassies require, and how to avoid rejection.",
+    readingMinutes: 5,
+    publishedIso: "2026-03-05",
+    body: `
+<h2>The core problem</h2>
+<p>Your Nepali citizenship certificate and most official Nepali documents record dates in Bikram Sambat. Foreign embassies — US, UK, Schengen, Australia, Canada — accept only Gregorian (AD) dates. Even a single-day mismatch between your visa application and your passport DOB can trigger additional scrutiny or outright rejection.</p>
+
+<h2>Step 1: find your BS date of birth</h2>
+<p>Your BS DOB appears on your citizenship certificate, your school-leaving (SLC/SEE) certificate, or your birth certificate. If these documents disagree, use the citizenship certificate — it is the primary civil identity document in Nepal.</p>
+
+<h2>Step 2: convert precisely</h2>
+<p>Use the <a href="/bs-to-ad-converter">BS to AD converter</a> to get the exact AD date. Do not use year arithmetic (subtracting 56 or 57) — this fails for dates in January through mid-April.</p>
+
+<h2>Step 3: match the format required</h2>
+<p>Different visa application systems use different date formats:</p>
+<ul>
+<li><strong>US (DS-160)</strong>: MM/DD/YYYY — e.g. 04/14/1990</li>
+<li><strong>UK (UKVI)</strong>: DD/MM/YYYY — e.g. 14/04/1990</li>
+<li><strong>Schengen (VFS)</strong>: DD.MM.YYYY — e.g. 14.04.1990</li>
+<li><strong>Canada (IRCC)</strong>: YYYY-MM-DD — e.g. 1990-04-14</li>
+</ul>
+
+<h2>Step 4: cross-check against your Nepali passport</h2>
+<p>Your Nepali passport already contains your AD date of birth in the Machine-Readable Zone. Cross-check your conversion result against the passport. If they differ, use the passport's AD date on the visa form (it is the internationally recognised document), and report the discrepancy in your citizenship certificate to the Passport Office.</p>
+
+<h2>Keep a permanent record</h2>
+<p>Once you have confirmed your AD DOB, write it down and keep it with your important documents. Many Nepali families discover a DOB inconsistency only when applying for their first visa abroad — far better to resolve it before you urgently need a visa.</p>
+`,
+  },
+  {
+    slug: "nepali-date-difference-calculator",
+    title: "How to calculate the number of days between two Nepali BS dates",
+    description: "Need to know how many days between two BS dates? Learn when to use the date-difference tool, common use cases in Nepal, and how the calculation works.",
+    readingMinutes: 4,
+    publishedIso: "2026-03-15",
+    body: `
+<h2>When do you need date-difference in BS?</h2>
+<p>Several practical situations in Nepal call for exact day counts between two Bikram Sambat dates:</p>
+<ul>
+<li>Calculating a contract duration (government contracts run in BS dates)</li>
+<li>Finding how many days remain until a tax deadline</li>
+<li>Counting days for a probation or leave entitlement period in employment</li>
+<li>Checking whether a property registration or tender period is still open</li>
+<li>Figuring out how many days until a festival or auspicious occasion</li>
+</ul>
+
+<h2>The challenge with BS month arithmetic</h2>
+<p>In the Gregorian calendar, month lengths are almost fixed (28–31 days) so simple arithmetic is predictable. In Bikram Sambat, month lengths vary from 29 to 32 days and the lengths themselves change from year to year. You cannot reliably count by saying "three months = 90 days" in BS — it might be 88 or 93 depending on which months are involved.</p>
+
+<h2>How the date-difference tool works</h2>
+<p>The <a href="/date-difference">date-difference calculator</a> converts both input BS dates to a day count from the same epoch, then subtracts. The result is always exact regardless of month boundaries or year boundaries. The tool also breaks down the span into years, months and remaining days for readability.</p>
+
+<h2>Working with durations across the new year</h2>
+<p>A common source of confusion: a duration that spans 1 Baisakh. The year changes but the day count is continuous — 30 Chaitra 2082 and 1 Baisakh 2083 are consecutive days, just as 31 December and 1 January are in the Gregorian calendar. The date-difference tool handles this correctly regardless of year boundary.</p>
+
+<h2>Converting the result to AD</h2>
+<p>If you need the same duration expressed in AD terms, the answer is identical — the number of days between two calendar dates is the same regardless of which calendar system you use to specify those dates. Seven days is seven days in both BS and AD.</p>
+`,
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
