@@ -5,20 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#FF6B35" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href="https://npdates.app/" />
+    <link rel="canonical" href="https://npdates.org/" />
+    <script>
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      }(window.location));
+    </script>
 
     <title>Nepali Date Converter — BS to AD &amp; AD to BS, Calendar, Festivals</title>
     <meta name="description" content="The fastest, most accurate Nepali date converter. Convert Bikram Sambat (BS) ↔ AD instantly, view today's Nepali date, browse the Nepali calendar, festivals, fiscal year and more." />
     <meta name="keywords" content="Nepali date converter, BS to AD, AD to BS, Bikram Sambat, Nepali calendar, today Nepali date, fiscal year Nepal, Nepali festivals" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="author" content="npdates.app" />
+    <meta name="author" content="npdates.org" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="npdates" />
     <meta property="og:title" content="Nepali Date Converter — BS ↔ AD, Calendar &amp; Festivals" />
     <meta property="og:description" content="Convert Nepali Bikram Sambat to AD and back, get today's Nepali date, browse the Nepali calendar, festivals and fiscal year — fast, accurate and free." />
     <meta property="og:image" content="/opengraph.jpg" />
-    <meta property="og:url" content="https://npdates.app/" />
+    <meta property="og:url" content="https://npdates.org/" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Nepali Date Converter — BS ↔ AD" />
@@ -36,7 +46,7 @@
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "Nepali Date Converter",
-        "url": "https://npdates.app/",
+        "url": "https://npdates.org/",
         "description": "Convert Nepali Bikram Sambat (BS) to AD and back, view today's Nepali date, browse the Nepali calendar, festivals and fiscal year.",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Web",
@@ -50,7 +60,7 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "npdates",
-        "url": "https://npdates.app/",
+        "url": "https://npdates.org/",
         "logo": "/opengraph.jpg",
         "sameAs": []
       }
