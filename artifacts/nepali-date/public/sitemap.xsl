@@ -30,15 +30,19 @@
             <tr>
               <th>#</th>
               <th>URL</th>
+              <th>Last Modified</th>
+              <th>Change Freq</th>
+              <th>Priority</th>
             </tr>
           </thead>
           <tbody>
             <xsl:for-each select="sm:urlset/sm:url">
               <tr>
                 <td><xsl:value-of select="position()"/></td>
-                <td>
-                  <a href="{sm:loc}"><xsl:value-of select="sm:loc"/></a>
-                </td>
+                <td><a href="{sm:loc}"><xsl:value-of select="sm:loc"/></a></td>
+                <td><xsl:value-of select="sm:lastmod"/></td>
+                <td><xsl:value-of select="sm:changefreq"/></td>
+                <td><xsl:value-of select="sm:priority"/></td>
               </tr>
             </xsl:for-each>
           </tbody>
