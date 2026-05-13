@@ -1,0 +1,17 @@
+{
+  "name": "Nepali Date Converter — npdates",
+  "short_name": "npdates",
+  "description": "Convert Nepali BS to AD and back, browse the Nepali calendar, festivals and fiscal year.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F8FC",
+  "theme_color": "#FF6B35",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

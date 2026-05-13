@@ -1,9 +1,13 @@
-name: Deploy to GitHub Pages
+name: Deploy Next.js to GitHub Pages
+
+# Replaces the prior Vite SPA deploy.
+# Schedule: 18:15 UTC = 00:00 Asia/Kathmandu, so /today-nepali-date flips at midnight.
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  schedule:
+    - cron: "15 18 * * *"
   workflow_dispatch:
 
 permissions:
@@ -16,58 +20,49 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v3
         with:
-          version: 9
+          version: 10
           run_install: false
 
-      - name: Get pnpm store directory
+      - name: Get pnpm store
         shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - name: Setup pnpm cache
-        uses: actions/cache@v4
+      - uses: actions/cache@v4
         with:
           path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          key: ${{ runner.os }}-pnpm-next-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-next-
 
-      - name: Install dependencies
+      - name: Install (workspace root)
         run: pnpm install --no-frozen-lockfile
 
-      - name: Build Frontend
+      - name: Build Next.js
         env:
-          BASE_PATH: /
-        run: |
-          pnpm --filter @workspace/nepali-date run build
-          # Create 404.html for SPA routing on GitHub Pages
-          cp artifacts/nepali-date/dist/public/index.html artifacts/nepali-date/dist/public/404.html
+          NEXT_PUBLIC_SITE_URL: https://npdates.org
+        run: pnpm --filter npdates-next build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: 'artifacts/nepali-date/dist/public'
+          path: artifacts/nepali-date-next/out
 
-      - name: Deploy to GitHub Pages
-        id: deployment
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v4
+      - id: deployment
         uses: actions/deploy-pages@v4
