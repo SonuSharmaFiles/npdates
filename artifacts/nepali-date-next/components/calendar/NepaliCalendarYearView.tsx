@@ -1,40 +1,10 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { CalendarGrid } from "@/components/calendar/CalendarGrid";
-import { BS_MONTHS_EN, BS_MONTHS_NP, BS_MIN_YEAR, BS_MAX_YEAR, bsToAd, toNepaliNumeral } from "@/lib/converter";
+import { BS_MONTHS_EN, BS_MONTHS_NP, bsToAd, toNepaliNumeral } from "@/lib/converter";
 import { festivalsForYear } from "@/data/festivals";
 
-const PRE_RENDER_YEARS = [2080, 2081, 2082, 2083, 2084, 2085];
-
-type Params = { year: string };
-
-export const dynamicParams = false;
-
-export function generateStaticParams(): Params[] {
-  return PRE_RENDER_YEARS.map((y) => ({ year: String(y) }));
-}
-
-export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
-  const { year: yStr } = await params;
-  const year = Number(yStr);
-  if (!year || year < BS_MIN_YEAR || year > BS_MAX_YEAR) {
-    return buildMetadata({ title: "Year out of range", description: "Invalid BS year.", path: `/nepali-calendar-${yStr}`, noIndex: true });
-  }
-  return buildMetadata({
-    title: `Nepali Calendar ${year} BS — Full Year, Months & Festivals`,
-    description: `Complete Nepali (Bikram Sambat) calendar for ${year} BS with all 12 months, festivals, public holidays, and Gregorian (AD) date mappings.`,
-    path: `/nepali-calendar-${year}`,
-  });
-}
-
-export default async function CalendarYearPage({ params }: { params: Promise<Params> }) {
-  const { year: yStr } = await params;
-  const year = Number(yStr);
-  if (!year || year < BS_MIN_YEAR || year > BS_MAX_YEAR) notFound();
-
+export function NepaliCalendarYearView({ year }: { year: number }) {
   const fests = festivalsForYear(year);
   const yearStart = bsToAd(year, 1, 1);
 
@@ -88,4 +58,12 @@ export default async function CalendarYearPage({ params }: { params: Promise<Par
       </section>
     </div>
   );
+}
+
+export function calendarYearMetadata(year: number) {
+  return {
+    title: `Nepali Calendar ${year} BS — Full Year, Months & Festivals`,
+    description: `Complete Nepali (Bikram Sambat) calendar for ${year} BS with all 12 months, festivals, public holidays, and Gregorian (AD) date mappings.`,
+    path: `/nepali-calendar-${year}`,
+  };
 }

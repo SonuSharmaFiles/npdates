@@ -6,8 +6,9 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { BS_MONTHS_EN, BS_MONTHS_NP, BS_MIN_YEAR, BS_MAX_YEAR, bsToAd, getDaysInBsMonth, toNepaliNumeral } from "@/lib/converter";
 import { festivalsForYear } from "@/data/festivals";
 import { CalendarMonthClient } from "./CalendarMonthClient";
+import { CALENDAR_YEARS, isCalendarPreRendered } from "@/lib/pre-render-years";
 
-const PRE_RENDER_YEARS = [2080, 2081, 2082, 2083, 2084, 2085];
+const PRE_RENDER_YEARS = CALENDAR_YEARS;
 
 type Params = { year: string; month: string };
 
@@ -104,12 +105,16 @@ export default async function CalendarMonthPage({ params }: { params: Promise<Pa
             )}
           </div>
           <div className="border rounded-2xl p-5 bg-card flex flex-col gap-2 text-sm">
-            <Link href={`/calendar/${prevYear}/${prevMonth}`} className="hover:text-primary">
-              ← Previous month ({BS_MONTHS_EN[prevMonth - 1]} {prevYear})
-            </Link>
-            <Link href={`/calendar/${nextYear}/${nextMonth}`} className="hover:text-primary">
-              Next month ({BS_MONTHS_EN[nextMonth - 1]} {nextYear}) →
-            </Link>
+            {isCalendarPreRendered(prevYear) && (
+              <Link href={`/calendar/${prevYear}/${prevMonth}`} className="hover:text-primary">
+                ← Previous month ({BS_MONTHS_EN[prevMonth - 1]} {prevYear})
+              </Link>
+            )}
+            {isCalendarPreRendered(nextYear) && (
+              <Link href={`/calendar/${nextYear}/${nextMonth}`} className="hover:text-primary">
+                Next month ({BS_MONTHS_EN[nextMonth - 1]} {nextYear}) →
+              </Link>
+            )}
             <Link href={`/nepali-calendar-${year}`} className="hover:text-primary mt-2">
               See full year {year} BS
             </Link>

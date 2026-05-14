@@ -7,8 +7,9 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd, faqLd } from "@/components/seo/JsonLd";
 import { bsToAd, BS_MONTHS_EN, getDaysInBsMonth, BS_MIN_YEAR, BS_MAX_YEAR } from "@/lib/converter";
 import { festivalForBsDate } from "@/data/festivals";
+import { BS_LANDING_YEARS, isAdLandingPreRendered } from "@/lib/pre-render-years";
 
-const BS_PRE_RENDER_YEARS = [2082, 2083];
+const BS_PRE_RENDER_YEARS = BS_LANDING_YEARS;
 
 type Params = { year: string; month: string; day: string };
 
@@ -170,10 +171,12 @@ export default async function BsToAdLanding({ params }: { params: Promise<Params
             <div className="text-xs text-muted-foreground">View year</div>
             <div className="font-medium mt-1">{year} BS calendar</div>
           </Link>
-          <Link href={`/ad-to-bs/${ad.year}/${ad.month}/${ad.day}`} className="p-4 rounded-xl border hover-elevate">
-            <div className="text-xs text-muted-foreground">Reverse lookup</div>
-            <div className="font-medium mt-1">{ad.formatted} → BS</div>
-          </Link>
+          {isAdLandingPreRendered(ad.year) && (
+            <Link href={`/ad-to-bs/${ad.year}/${ad.month}/${ad.day}`} className="p-4 rounded-xl border hover-elevate">
+              <div className="text-xs text-muted-foreground">Reverse lookup</div>
+              <div className="font-medium mt-1">{ad.formatted} → BS</div>
+            </Link>
+          )}
         </section>
       </div>
     </>

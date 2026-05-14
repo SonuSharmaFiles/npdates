@@ -2,6 +2,11 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { BLOG_POSTS } from "@/data/blog-posts";
 import { getDaysInBsMonth } from "@/lib/converter";
+import {
+  BS_LANDING_YEARS as SHARED_BS,
+  AD_LANDING_YEARS as SHARED_AD,
+  CALENDAR_YEARS as SHARED_CAL,
+} from "@/lib/pre-render-years";
 
 export const dynamic = "force-static";
 
@@ -21,9 +26,9 @@ const STATIC_ROUTES: { path: string; priority: number; changefreq: MetadataRoute
   { path: "/about",                  priority: 0.5,  changefreq: "yearly"  },
 ];
 
-const BS_LANDING_YEARS = [2082, 2083];
-const AD_LANDING_YEARS = [2026, 2027];
-const CALENDAR_YEARS = [2080, 2081, 2082, 2083, 2084, 2085];
+const BS_LANDING_YEARS = SHARED_BS;
+const AD_LANDING_YEARS = SHARED_AD;
+const CALENDAR_YEARS = SHARED_CAL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date();

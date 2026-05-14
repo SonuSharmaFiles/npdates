@@ -5,20 +5,22 @@ import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { getFiscalYear, BS_MIN_YEAR } from "@/lib/converter";
 
+const FY_MIN = 2075;
+const FY_MAX = 2089; // bounded by BS_MAX_YEAR=2090, since FY references startYear+1
+
 type Params = { year: string };
 
 export const dynamicParams = false;
 
 export function generateStaticParams(): Params[] {
   const out: Params[] = [];
-  for (let y = 2075; y <= 2089; y++) out.push({ year: String(y) });
+  for (let y = FY_MIN; y <= FY_MAX; y++) out.push({ year: String(y) });
   return out;
 }
 
 function parseYear(yStr: string): number | null {
   const startYear = Number(yStr);
-  // Fiscal year needs both startYear and startYear+1 to be valid BS years.
-  if (!startYear || startYear < BS_MIN_YEAR || startYear > 2089) return null;
+  if (!startYear || startYear < BS_MIN_YEAR || startYear > FY_MAX) return null;
   return startYear;
 }
 
@@ -92,8 +94,12 @@ export default async function FiscalYearLandingPage({ params }: { params: Promis
         </p>
         <h3>Related fiscal years</h3>
         <ul>
-          <li><Link href={`/fiscal-year/${startYear - 1}`}>Previous: FY {startYear - 1}/{String(startYear).slice(-2)}</Link></li>
-          <li><Link href={`/fiscal-year/${startYear + 1}`}>Next: FY {startYear + 1}/{String(startYear + 2).slice(-2)}</Link></li>
+          {startYear - 1 >= FY_MIN && (
+            <li><Link href={`/fiscal-year/${startYear - 1}`}>Previous: FY {startYear - 1}/{String(startYear).slice(-2)}</Link></li>
+          )}
+          {startYear + 1 <= FY_MAX && (
+            <li><Link href={`/fiscal-year/${startYear + 1}`}>Next: FY {startYear + 1}/{String(startYear + 2).slice(-2)}</Link></li>
+          )}
           <li><Link href="/fiscal-year-converter">Find FY for any date</Link></li>
         </ul>
       </section>
