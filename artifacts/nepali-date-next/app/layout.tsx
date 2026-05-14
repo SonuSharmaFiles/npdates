@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
-import { JsonLd, webApplicationLd, organizationLd } from "@/components/seo/JsonLd";
+import { JsonLd, webApplicationLd, organizationLd, websiteLd } from "@/components/seo/JsonLd";
 import { ROOT_METADATA } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import "./globals.css";
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${manrope.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}
     >
       <head>
-        <JsonLd data={[webApplicationLd, organizationLd]} />
+        <JsonLd data={[organizationLd, websiteLd, webApplicationLd]} />
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>

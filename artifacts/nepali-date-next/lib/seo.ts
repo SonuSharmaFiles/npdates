@@ -21,11 +21,12 @@ export function buildMetadata(input: PageMetaInput): Metadata {
     path === "/" ? input.title : `${input.title} — ${SITE.name}`;
 
   return {
-    title: fullTitle,
+    // Use absolute title — bypasses ROOT_METADATA's template so the site name
+    // isn't appended twice (e.g. "About npdates — The Nepali Date Toolkit — npdates").
+    title: { absolute: fullTitle },
     description: input.description,
     keywords: input.keywords,
     alternates: { canonical: url },
-    metadataBase: new URL(SITE_URL),
     robots: input.noIndex
       ? { index: false, follow: false }
       : { index: true, follow: true, "max-image-preview": "large" },
@@ -45,9 +46,6 @@ export function buildMetadata(input: PageMetaInput): Metadata {
       title: fullTitle,
       description: input.description,
       images: [image],
-    },
-    other: {
-      "theme-color": SITE.themeColor,
     },
   };
 }
