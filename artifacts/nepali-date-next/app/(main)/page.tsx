@@ -10,26 +10,82 @@ import {
   Code2,
   BookOpen,
   ArrowRight,
+  CheckCircle2,
+  CalendarRange,
+  Languages,
+  Terminal,
 } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
-import { JsonLd, faqLd } from "@/components/seo/JsonLd";
+import { JsonLd, faqLd, breadcrumbLd } from "@/components/seo/JsonLd";
 import { ConverterCard } from "@/components/converter/ConverterCard";
 import { getTodayInKathmandu, toNepaliNumeral } from "@/lib/converter";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Nepali Date Converter — BS to AD & AD to BS, Calendar, Festivals",
+  title:
+    "Nepali Date Converter (BS ↔ AD) + Calendar, Today's Nepali Date | npdates",
   description:
-    "The fastest, most accurate Nepali date converter. Convert Bikram Sambat (BS) ↔ AD instantly, view today's Nepali date, browse the Nepali calendar, festivals and fiscal year.",
+    "Convert BS to AD and AD to BS in seconds. Check today's Nepali date, browse the Nepali calendar, festivals and fiscal year — free, day-accurate, and built for Nepalis.",
   path: "/",
   keywords: [
     "Nepali date converter",
-    "BS to AD",
+    "BS to AD converter",
     "AD to BS",
+    "today Nepali date",
     "Bikram Sambat",
     "Nepali calendar",
-    "today Nepali date",
   ],
 });
+
+const TRUST_SIGNALS = [
+  {
+    icon: CheckCircle2,
+    title: "Day-accurate conversion",
+    desc: "Every BS↔AD date verified against the published Nepal patro — correct to the weekday.",
+  },
+  {
+    icon: CalendarRange,
+    title: "Supports BS 1970–2099",
+    desc: "130 years of Bikram Sambat data, covering historical records and future dates.",
+  },
+  {
+    icon: Languages,
+    title: "Nepali numerals support",
+    desc: "Results rendered in both English and Devanagari (देवनागरी) numerals.",
+  },
+  {
+    icon: Terminal,
+    title: "Free developer API",
+    desc: "Drop-in JSON REST endpoints — convert dates, fetch the calendar, festivals and fiscal year.",
+  },
+];
+
+const LEARN = [
+  {
+    title: "What is Bikram Sambat?",
+    desc: "A primer on Nepal's official solar calendar — origin, structure and why it's still in use.",
+    href: "/blog/what-is-bikram-sambat",
+  },
+  {
+    title: "BS vs AD explained",
+    desc: "The 56-year gap, why naive year math breaks, and how official conversion actually works.",
+    href: "/blog/difference-between-bs-and-ad",
+  },
+  {
+    title: "How the Nepali calendar (patro) works",
+    desc: "Why month lengths vary, how weekdays line up and how festivals are determined.",
+    href: "/blog/nepali-patro-guide",
+  },
+  {
+    title: "Nepal fiscal year guide",
+    desc: "Shrawan to Ashadh — how Nepal's government budget cycle differs from the calendar year.",
+    href: "/blog/nepali-fiscal-year-explained",
+  },
+  {
+    title: "Major Nepali festivals & holidays",
+    desc: "Dashain, Tihar, Holi, Teej and every public holiday — with BS and AD dates.",
+    href: "/festivals",
+  },
+];
 
 const FEATURES = [
   { icon: CalendarDays, title: "BS ↔ AD Converter", desc: "Instant, accurate conversion across 130 years.", href: "/bs-to-ad-converter" },
@@ -71,6 +127,7 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={faqLd(FAQ.map((f) => ({ question: f.q, answer: f.a })))} />
+      <JsonLd data={breadcrumbLd([{ name: "Home", path: "/" }])} />
 
       <section className="relative overflow-hidden border-b">
         <div
@@ -116,6 +173,25 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section aria-label="Why npdates" className="border-b">
+        <div className="container mx-auto px-4 py-10 md:py-14 max-w-6xl">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {TRUST_SIGNALS.map((t) => (
+              <div
+                key={t.title}
+                className="p-5 rounded-2xl border bg-card hover-elevate"
+              >
+                <t.icon className="w-5 h-5 text-primary" />
+                <div className="mt-3 font-semibold text-sm">{t.title}</div>
+                <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
+                  {t.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 md:py-24 border-b">
         <div className="container mx-auto px-4 max-w-6xl">
           <header className="max-w-2xl mb-10">
@@ -145,6 +221,38 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 border-b">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <header className="max-w-2xl mb-10">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight">
+              Learn About Nepali Dates
+            </h2>
+            <p className="text-muted-foreground mt-3 text-lg">
+              Plain-language guides on the Bikram Sambat calendar, fiscal year,
+              festivals, and how Nepal's dates relate to the Gregorian system.
+            </p>
+          </header>
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {LEARN.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="block p-5 rounded-2xl border bg-card hover-elevate-2 group h-full"
+                >
+                  <h3 className="font-semibold">{l.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
+                    {l.desc}
+                  </p>
+                  <div className="mt-3 inline-flex items-center text-xs text-primary font-medium gap-1 group-hover:gap-2 transition-all">
+                    Read <ArrowRight className="w-3 h-3" />
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

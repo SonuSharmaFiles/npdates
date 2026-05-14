@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { BsDateSelector } from "./BsDateSelector";
 import { AdDateSelector } from "./AdDateSelector";
@@ -27,8 +27,18 @@ export function ConverterCard({ initialDirection = "BS_TO_AD" }: { initialDirect
   const [bsDate, setBsDate] = useState({ year: today.bs.year, month: today.bs.month, day: today.bs.day });
   const [adDate, setAdDate] = useState({ year: today.ad.year, month: today.ad.month, day: today.ad.day });
 
-  const [result, setResult] = useState<ConversionResult | null>(null);
   const [copied, setCopied] = useState(false);
+
+  // Compute synchronously so the very first render (SSR + initial client) shows
+  // a real conversion — not "Invalid date combination" until the effect fires.
+  const result: ConversionResult | null = useMemo(() => {
+    try {
+      if (direction === "BS_TO_AD") return bsToAd(bsDate.year, bsDate.month, bsDate.day);
+      return adToBs(adDate.year, adDate.month, adDate.day);
+    } catch {
+      return null;
+    }
+  }, [direction, bsDate, adDate]);
 
   const [history, setHistory] = useState<HistoryItem[]>([]);
   useEffect(() => {
@@ -55,17 +65,6 @@ export function ConverterCard({ initialDirection = "BS_TO_AD" }: { initialDirect
     });
   }, []);
 
-  useEffect(() => {
-    try {
-      if (direction === "BS_TO_AD") {
-        setResult(bsToAd(bsDate.year, bsDate.month, bsDate.day));
-      } else {
-        setResult(adToBs(adDate.year, adDate.month, adDate.day));
-      }
-    } catch {
-      setResult(null);
-    }
-  }, [bsDate, adDate, direction]);
 
   const handleCopy = () => {
     if (!result) return;
@@ -115,9 +114,9 @@ export function ConverterCard({ initialDirection = "BS_TO_AD" }: { initialDirect
 
       <div className="p-6 md:p-8">
         <div className="mb-6">
-          <h3 className="font-serif font-bold text-xl mb-4">
+          <h2 className="font-serif font-bold text-xl mb-4">
             {direction === "BS_TO_AD" ? "Enter Bikram Sambat Date" : "Enter Gregorian (AD) Date"}
-          </h3>
+          </h2>
           {direction === "BS_TO_AD" ? (
             <BsDateSelector date={bsDate} onChange={setBsDate} />
           ) : (

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CalendarDays, MapPin, Sunrise } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
+import { JsonLd, breadcrumbLd } from "@/components/seo/JsonLd";
 import { getTodayInKathmandu, getFiscalYear, BS_MONTHS_EN } from "@/lib/converter";
 import { festivalsForYear } from "@/data/festivals";
 import { KathmanduClock } from "@/components/today/KathmanduClock";
@@ -30,6 +31,12 @@ export default function TodayPage() {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-5xl">
+      <JsonLd
+        data={breadcrumbLd([
+          { name: "Home", path: "/" },
+          { name: "Today's Nepali Date", path: "/today-nepali-date" },
+        ])}
+      />
       <h1 className="font-serif text-3xl font-bold mb-8">Today in Nepal</h1>
 
       <div className="grid md:grid-cols-5 gap-6">
