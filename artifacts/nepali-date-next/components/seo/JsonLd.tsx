@@ -32,7 +32,7 @@ export const organizationLd = {
   name: SITE.name,
   url: `${SITE_URL}/`,
   description:
-    "Maintainers of npdates, a free Bikram Sambat ↔ Gregorian date toolkit including a Nepali calendar, festivals and fiscal-year reference.",
+    "Maintainers of npdates, a free Bikram Sambat ↔ Gregorian date toolkit with age calculator, date difference and fiscal-year reference.",
   logo: {
     "@type": "ImageObject",
     url: `${SITE_URL}/opengraph.jpg`,
@@ -48,7 +48,7 @@ export const webApplicationLd = {
   name: "Nepali Date Converter",
   url: `${SITE_URL}/`,
   description:
-    "Convert Nepali Bikram Sambat (BS) to AD and back, view today's Nepali date, browse the Nepali calendar, festivals and fiscal year.",
+    "Convert Nepali Bikram Sambat (BS) to AD and back, view today's Nepali date, calculate age and date difference, and look up Nepal's fiscal year.",
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "Web",
   inLanguage: "en",
@@ -59,7 +59,6 @@ export const webApplicationLd = {
     "Bikram Sambat (BS) to Gregorian (AD) date conversion",
     "Gregorian (AD) to Bikram Sambat (BS) date conversion",
     "Today's Nepali date in Kathmandu time",
-    "Full Nepali (Bikram Sambat) calendar with festivals",
     "Nepali fiscal year lookup",
     "Age calculator (BS and AD)",
     "Date difference calculator",

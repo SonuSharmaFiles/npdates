@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { CalendarDays, MapPin, Sunrise } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbLd } from "@/components/seo/JsonLd";
-import { getTodayInKathmandu, getFiscalYear, BS_MONTHS_EN } from "@/lib/converter";
-import { festivalsForYear } from "@/data/festivals";
+import { getTodayInKathmandu, getFiscalYear } from "@/lib/converter";
 import { KathmanduClock } from "@/components/today/KathmanduClock";
 
 export const metadata: Metadata = buildMetadata({
@@ -20,14 +19,6 @@ export default function TodayPage() {
   // Nepali fiscal year starts on 1 Shrawan (month 4); months 1-3 belong to the previous FY
   const fyStart = today.bs.month >= 4 ? today.bs.year : today.bs.year - 1;
   const fiscalYear = getFiscalYear(fyStart);
-
-  // Find the next upcoming festival in the current BS year
-  const festivals = festivalsForYear(today.bs.year);
-  const upcoming = festivals.find(
-    (f) =>
-      f.bsMonth > today.bs.month ||
-      (f.bsMonth === today.bs.month && f.bsDay >= today.bs.day),
-  );
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-5xl">
@@ -84,18 +75,6 @@ export default function TodayPage() {
             </div>
           </div>
 
-          {upcoming && (
-            <div className="bg-primary border-primary border text-primary-foreground rounded-2xl p-6 shadow-sm hover-elevate">
-              <h3 className="font-medium opacity-90 mb-4 uppercase tracking-wider text-xs">
-                Upcoming Festival
-              </h3>
-              <div className="text-2xl font-bold font-serif mb-2">{upcoming.nameNepali}</div>
-              <div className="text-lg opacity-90 mb-1">{upcoming.name}</div>
-              <div className="text-sm opacity-80 mt-4 bg-black/20 inline-block px-3 py-1 rounded-full">
-                {upcoming.bsDay} {BS_MONTHS_EN[upcoming.bsMonth - 1]}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>

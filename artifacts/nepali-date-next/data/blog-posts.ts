@@ -163,10 +163,10 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Year 2082 of the Bikram Sambat calendar begins on <strong>14 April 2025</strong> AD and runs through the spring of 2026 AD. It contains the usual twelve Nepali months — from Baisakh through Chaitra — and a long list of religious and civic observances.</p>
 
 <h2>Month lengths in 2082 BS</h2>
-<p>Baisakh (31), Jestha (31), Ashadh (31), Shrawan (32), Bhadra (31), Ashwin (31), Kartik (30), Mangsir (29), Poush (30), Magh (29), Falgun (30), Chaitra (30). See the full <a href="/nepali-calendar-2082">2082 calendar grid</a>.</p>
+<p>Baisakh (31), Jestha (31), Ashadh (31), Shrawan (32), Bhadra (31), Ashwin (31), Kartik (30), Mangsir (29), Poush (30), Magh (29), Falgun (30), Chaitra (30).</p>
 
 <h2>Major festivals in 2082 BS</h2>
-<p>Highlights include Buddha Jayanti, Janai Purnima, Krishna Janmashtami, Teej, Dashain (Vijaya Dashami in Ashwin), Tihar in Kartik, Maha Shivaratri in Falgun and Holi. See the full list on the <a href="/festivals">festivals page</a>.</p>
+<p>Highlights include Buddha Jayanti, Janai Purnima, Krishna Janmashtami, Teej, Dashain (Vijaya Dashami in Ashwin), Tihar in Kartik, Maha Shivaratri in Falgun and Holi.</p>
 
 <h2>Fiscal year</h2>
 <p>FY 2082/83 starts on 1 Shrawan 2082 (3 August 2025 AD) and ends on the last day of Ashadh 2083 (mid-July 2026 AD). See <a href="/fiscal-year/2082">FY 2082/83 details</a>.</p>
@@ -229,7 +229,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Regional and observed</h2>
 <p>Some holidays are gazetted for specific regions (e.g. Holi Hill vs Terai). Public-sector employees in Madhesh province may have additional regional days.</p>
 
-<p>For the full year-by-year list with calendar mappings, see the <a href="/festivals">festivals page</a>.</p>
+<p>Confirm exact dates each year against the annual patro, since the lunar holidays shift relative to the solar BS calendar.</p>
 `,
   },
   {
@@ -279,7 +279,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Although it opens the new calendar year, Baisakh sits in the <em>last quarter</em> of the fiscal year (which ends in Ashadh). Government offices and schools are in the final stretch of the FY 2082/83 budget cycle during this period.</p>
 
 <h2>Converting 1 Baisakh 2083 to AD</h2>
-<p>Use the <a href="/bs-to-ad-converter">BS to AD converter</a> to confirm the exact AD date or look up any other day in the new year. The full monthly calendar is available on the <a href="/nepali-calendar-2083">2083 calendar page</a>.</p>
+<p>Use the <a href="/bs-to-ad-converter">BS to AD converter</a> to confirm the exact AD date or look up any other day in the new year.</p>
 `,
   },
   {
@@ -330,7 +330,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>Holi</strong> — Falgun</li>
 </ul>
 
-<p>Browse the full day-by-day layout on the <a href="/nepali-calendar-2083">2083 calendar page</a>.</p>
+<p>Use the <a href="/bs-to-ad-converter">BS to AD converter</a> to look up any specific BS 2083 date.</p>
 `,
   },
   {
@@ -412,7 +412,7 @@ export const BLOG_POSTS: BlogPost[] = [
 </ol>
 
 <h2>Teej 2083 BS dates</h2>
-<p>Teej falls on the third day of the bright fortnight (Shukla Tritiya) of Bhadra. For 2083 BS this places the main Teej day in <strong>late Bhadra 2083</strong> (approximately September 2026 AD). Exact dates depend on the lunar calendar and are confirmed in the annual patro published at the start of the BS year. Check the <a href="/festivals">festivals page</a> for the confirmed date as it approaches.</p>
+<p>Teej falls on the third day of the bright fortnight (Shukla Tritiya) of Bhadra. For 2083 BS this places the main Teej day in <strong>late Bhadra 2083</strong> (approximately September 2026 AD). Exact dates depend on the lunar calendar and are confirmed in the annual patro published at the start of the BS year.</p>
 
 <h2>Cultural importance</h2>
 <p>Teej is one of the most visible celebrations in Nepal. The Bagmati river banks at Pashupatinath fill with thousands of red-clad women singing traditional Teej songs (<em>teej geet</em>). Television channels broadcast live performances, and the songs — often with witty social commentary — are culturally significant beyond their religious role.</p>
@@ -440,7 +440,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Reading the auspicious time columns</h2>
 <p>Traditional patros mark certain times as <em>Rahu Kalam</em> (inauspicious window attributed to Rahu), <em>Gulika Kalam</em>, and <em>Yamakantam</em>. Important events — surgeries, business launches, travel — are often scheduled around these windows. While these are Jyotish-based, they remain a practical feature that millions of Nepali families consult daily.</p>
 
-<p>Explore the digital patro on the <a href="/nepali-calendar">Nepali calendar page</a>.</p>
+<p>The patro remains a daily companion for millions of Nepali families, even alongside digital calendars.</p>
 `,
   },
   {

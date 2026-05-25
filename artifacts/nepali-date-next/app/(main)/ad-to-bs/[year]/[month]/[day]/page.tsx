@@ -5,11 +5,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd, faqLd } from "@/components/seo/JsonLd";
-import { adToBs, BS_MONTHS_EN, AD_MONTHS_EN } from "@/lib/converter";
+import { adToBs, AD_MONTHS_EN } from "@/lib/converter";
 import {
   AD_LANDING_YEARS,
   isBsLandingPreRendered,
-  isCalendarPreRendered,
 } from "@/lib/pre-render-years";
 
 const AD_PRE_RENDER_YEARS = AD_LANDING_YEARS;
@@ -102,13 +101,6 @@ export default async function AdToBsLanding({ params }: { params: Promise<Params
             </div>
           </div>
 
-          {isCalendarPreRendered(bs.year) && (
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link href={`/calendar/${bs.year}/${bs.month}`} className="inline-flex items-center justify-center rounded-md border border-input px-4 py-2 text-sm font-medium hover:bg-accent transition-colors">
-                View {BS_MONTHS_EN[bs.month - 1]} {bs.year} BS calendar
-              </Link>
-            </div>
-          )}
         </article>
 
         <nav className="mt-6 grid grid-cols-2 gap-3 text-sm">
@@ -144,36 +136,18 @@ export default async function AdToBsLanding({ params }: { params: Promise<Params
           <p>{ad.formatted} is <strong>{bs.formatted}</strong> ({bs.formattedNepali}) in the Bikram Sambat calendar.</p>
           <h3>How do I convert other AD dates?</h3>
           <p>
-            Try the <Link href="/ad-to-bs-converter">AD to BS converter</Link> for any other date
-            {isCalendarPreRendered(bs.year) && (
-              <>
-                {" "}or jump to a{" "}
-                <Link href={`/calendar/${bs.year}/${bs.month}`}>specific BS month</Link>
-              </>
-            )}.
+            Try the <Link href="/ad-to-bs-converter">AD to BS converter</Link> for any other date.
           </p>
         </section>
 
-        <section className="mt-10 grid md:grid-cols-3 gap-3 text-sm">
-          {isCalendarPreRendered(bs.year) && (
-            <Link href={`/calendar/${bs.year}/${bs.month}`} className="p-4 rounded-xl border hover-elevate">
-              <div className="text-xs text-muted-foreground">View month</div>
-              <div className="font-medium mt-1">{BS_MONTHS_EN[bs.month - 1]} {bs.year} BS</div>
-            </Link>
-          )}
-          {isCalendarPreRendered(bs.year) && (
-            <Link href={`/nepali-calendar-${bs.year}`} className="p-4 rounded-xl border hover-elevate">
-              <div className="text-xs text-muted-foreground">View year</div>
-              <div className="font-medium mt-1">{bs.year} BS calendar</div>
-            </Link>
-          )}
-          {isBsLandingPreRendered(bs.year) && (
+        {isBsLandingPreRendered(bs.year) && (
+          <section className="mt-10 grid md:grid-cols-1 gap-3 text-sm">
             <Link href={`/bs-to-ad/${bs.year}/${bs.month}/${bs.day}`} className="p-4 rounded-xl border hover-elevate">
               <div className="text-xs text-muted-foreground">Reverse lookup</div>
               <div className="font-medium mt-1">{bs.formatted} → AD</div>
             </Link>
-          )}
-        </section>
+          </section>
+        )}
       </div>
     </>
   );

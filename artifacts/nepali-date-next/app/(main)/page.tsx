@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  Calendar,
-  CalendarDays,
   Clock,
   Cake,
   Sigma,
-  Sparkles,
   Code2,
   BookOpen,
   ArrowRight,
@@ -22,9 +19,9 @@ import { getTodayInKathmandu, toNepaliNumeral } from "@/lib/converter";
 
 export const metadata: Metadata = buildMetadata({
   title:
-    "Nepali Date Converter (BS ↔ AD) + Calendar, Today's Nepali Date | npdates",
+    "Nepali Date Converter (BS ↔ AD) — Today's Nepali Date | npdates",
   description:
-    "Convert BS to AD and AD to BS in seconds. Check today's Nepali date, browse the Nepali calendar, festivals and fiscal year — free, day-accurate, and built for Nepalis.",
+    "Convert BS to AD and AD to BS in seconds. Check today's Nepali date, calculate age and date differences — free, day-accurate, and built for Nepalis.",
   path: "/",
   keywords: [
     "Nepali date converter",
@@ -32,7 +29,8 @@ export const metadata: Metadata = buildMetadata({
     "AD to BS",
     "today Nepali date",
     "Bikram Sambat",
-    "Nepali calendar",
+    "age calculator",
+    "date difference",
   ],
 });
 
@@ -55,7 +53,7 @@ const TRUST_SIGNALS = [
   {
     icon: Terminal,
     title: "Free developer API",
-    desc: "Drop-in JSON REST endpoints — convert dates, fetch the calendar, festivals and fiscal year.",
+    desc: "Drop-in JSON REST endpoints — convert dates and fetch the fiscal year.",
   },
 ];
 
@@ -71,29 +69,21 @@ const LEARN = [
     href: "/blog/difference-between-bs-and-ad",
   },
   {
-    title: "How the Nepali calendar (patro) works",
-    desc: "Why month lengths vary, how weekdays line up and how festivals are determined.",
-    href: "/blog/nepali-patro-guide",
+    title: "How BS↔AD conversion works",
+    desc: "Under the hood — epoch math, month-length tables, and why year arithmetic isn't enough.",
+    href: "/blog/how-bs-to-ad-conversion-works",
   },
   {
     title: "Nepal fiscal year guide",
     desc: "Shrawan to Ashadh — how Nepal's government budget cycle differs from the calendar year.",
     href: "/blog/nepali-fiscal-year-explained",
   },
-  {
-    title: "Major Nepali festivals & holidays",
-    desc: "Dashain, Tihar, Holi, Teej and every public holiday — with BS and AD dates.",
-    href: "/festivals",
-  },
 ];
 
 const FEATURES = [
-  { icon: CalendarDays, title: "BS ↔ AD Converter", desc: "Instant, accurate conversion across 130 years.", href: "/bs-to-ad-converter" },
   { icon: Clock, title: "Today's Nepali Date", desc: "Live BS date with weekday, month and fiscal year.", href: "/today-nepali-date" },
-  { icon: Calendar, title: "Nepali Calendar", desc: "Browse any BS month with festivals highlighted.", href: "/nepali-calendar" },
   { icon: Cake, title: "Age Calculator", desc: "Years, months and days from any BS or AD birth date.", href: "/age-calculator" },
   { icon: Sigma, title: "Date Difference", desc: "Days, weeks, months between any two dates.", href: "/date-difference" },
-  { icon: Sparkles, title: "Festivals", desc: "Dashain, Tihar, Holi and every public holiday.", href: "/festivals" },
   { icon: BookOpen, title: "Fiscal Year", desc: "Find Nepal's fiscal year for any date.", href: "/fiscal-year-converter" },
   { icon: Code2, title: "Public API", desc: "Free REST endpoints for developers.", href: "/api-docs" },
 ];
@@ -145,13 +135,12 @@ export default function HomePage() {
                 Today is {today.bs.formatted} · {today.ad.formatted}
               </div>
               <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">
-                The Nepali date toolkit you'll actually{" "}
-                <span className="text-primary">enjoy</span> using.
+                Nepali Date Converter —{" "}
+                <span className="text-primary">BS ↔ AD</span>, instantly.
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mt-6 max-w-xl">
-                Convert Bikram Sambat to AD and back in a single tap. Browse the
-                Nepali calendar, festivals, fiscal year and more — fast, accurate,
-                free.
+                Convert Bikram Sambat to Gregorian and back in a single tap. Day-accurate,
+                Devanagari-aware, and free.
               </p>
               <div className="mt-7 flex flex-wrap items-center gap-3 text-sm">
                 <span className="text-muted-foreground">Trusted across:</span>
@@ -199,11 +188,11 @@ export default function HomePage() {
               Every Nepali date tool, in one place.
             </h2>
             <p className="text-muted-foreground mt-3 text-lg">
-              Calendars, calculators, festivals, fiscal year, embeddable widgets and
-              a developer API — all built on the same accurate engine.
+              Calculators, fiscal year, embeddable widgets and a developer API — all built on the
+              same accurate engine.
             </p>
           </header>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {FEATURES.map((f) => (
               <Link
                 key={f.href}
@@ -231,11 +220,11 @@ export default function HomePage() {
               Learn About Nepali Dates
             </h2>
             <p className="text-muted-foreground mt-3 text-lg">
-              Plain-language guides on the Bikram Sambat calendar, fiscal year,
-              festivals, and how Nepal's dates relate to the Gregorian system.
+              Plain-language guides on the Bikram Sambat calendar, fiscal year, and how Nepal's
+              dates relate to the Gregorian system.
             </p>
           </header>
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-2 gap-4">
             {LEARN.map((l) => (
               <li key={l.href}>
                 <Link

@@ -11,20 +11,18 @@ const FOOTER_GROUPS = [
     ],
   },
   {
-    title: "Calendar & Info",
+    title: "Tools",
     links: [
-      { href: "/nepali-calendar", label: "Calendar" },
       { href: "/today-nepali-date", label: "Today's Date" },
-      { href: "/festivals", label: "Festivals" },
       { href: "/fiscal-year-converter", label: "Fiscal Year" },
+      { href: "/widget", label: "Widgets" },
+      { href: "/api-docs", label: "API" },
     ],
   },
   {
     title: "Resources",
     links: [
       { href: "/blog", label: "Blog" },
-      { href: "/api-docs", label: "API" },
-      { href: "/widget", label: "Widgets" },
       { href: "/about", label: "About" },
     ],
   },

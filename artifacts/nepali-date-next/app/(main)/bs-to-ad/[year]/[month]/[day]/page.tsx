@@ -6,7 +6,6 @@ import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd, faqLd } from "@/components/seo/JsonLd";
 import { bsToAd, BS_MONTHS_EN, getDaysInBsMonth, BS_MIN_YEAR, BS_MAX_YEAR } from "@/lib/converter";
-import { festivalForBsDate } from "@/data/festivals";
 import { BS_LANDING_YEARS, isAdLandingPreRendered } from "@/lib/pre-render-years";
 
 const BS_PRE_RENDER_YEARS = BS_LANDING_YEARS;
@@ -49,10 +48,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     return buildMetadata({ title: "Invalid date", description: "Invalid BS date.", path: `/bs-to-ad/${p.year}/${p.month}/${p.day}`, noIndex: true });
   }
   const result = bsToAd(parsed.year, parsed.month, parsed.day);
-  const fest = festivalForBsDate(parsed.year, parsed.month, parsed.day);
   return buildMetadata({
     title: `Convert ${result.bs.formatted} to AD — ${result.ad.formatted}`,
-    description: `${result.bs.formatted} converts to ${result.ad.formatted} (${result.ad.weekdayName}) in the Gregorian calendar.${fest ? ` This day is ${fest.name}.` : ""}`,
+    description: `${result.bs.formatted} converts to ${result.ad.formatted} (${result.ad.weekdayName}) in the Gregorian calendar.`,
     path: `/bs-to-ad/${parsed.year}/${parsed.month}/${parsed.day}`,
   });
 }
@@ -63,7 +61,6 @@ export default async function BsToAdLanding({ params }: { params: Promise<Params
   if (!parsed) notFound();
   const { year, month, day } = parsed;
   const { bs, ad } = bsToAd(year, month, day);
-  const fest = festivalForBsDate(year, month, day);
 
   const monthDays = getDaysInBsMonth(year, month);
   const prevDay = day === 1 ? null : { y: year, m: month, d: day - 1 };
@@ -104,21 +101,6 @@ export default async function BsToAdLanding({ params }: { params: Promise<Params
             </div>
           </div>
 
-          {fest && (
-            <div className="mt-6 p-4 bg-destructive/5 border border-destructive/20 rounded-xl">
-              <p className="text-xs uppercase tracking-wider text-destructive font-medium">Festival</p>
-              <p className="font-medium mt-1">
-                This day is <strong>{fest.name}</strong> ({fest.nameNepali}) —{" "}
-                {fest.isPublicHoliday ? "a public holiday in Nepal" : fest.category.toLowerCase()}.
-              </p>
-            </div>
-          )}
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link href={`/calendar/${year}/${month}`} className="inline-flex items-center justify-center rounded-md border border-input px-4 py-2 text-sm font-medium hover:bg-accent transition-colors">
-              View {BS_MONTHS_EN[month - 1]} calendar
-            </Link>
-          </div>
         </article>
 
         <nav className="mt-6 grid grid-cols-2 gap-3 text-sm">
@@ -157,27 +139,18 @@ export default async function BsToAdLanding({ params }: { params: Promise<Params
           <p>{bs.formatted} falls on a <strong>{bs.weekdayName}</strong> ({bs.weekdayNameNepali}).</p>
           <h3>How do I convert other BS dates?</h3>
           <p>
-            Use the <Link href="/bs-to-ad-converter">BS to AD converter</Link> for any other date,
-            or browse the <Link href={`/nepali-calendar-${year}`}>{year} BS calendar</Link>.
+            Use the <Link href="/bs-to-ad-converter">BS to AD converter</Link> for any other date.
           </p>
         </section>
 
-        <section className="mt-10 grid md:grid-cols-3 gap-3 text-sm">
-          <Link href={`/calendar/${year}/${month}`} className="p-4 rounded-xl border hover-elevate">
-            <div className="text-xs text-muted-foreground">View month</div>
-            <div className="font-medium mt-1">{BS_MONTHS_EN[month - 1]} {year} BS</div>
-          </Link>
-          <Link href={`/nepali-calendar-${year}`} className="p-4 rounded-xl border hover-elevate">
-            <div className="text-xs text-muted-foreground">View year</div>
-            <div className="font-medium mt-1">{year} BS calendar</div>
-          </Link>
-          {isAdLandingPreRendered(ad.year) && (
+        {isAdLandingPreRendered(ad.year) && (
+          <section className="mt-10 grid md:grid-cols-1 gap-3 text-sm">
             <Link href={`/ad-to-bs/${ad.year}/${ad.month}/${ad.day}`} className="p-4 rounded-xl border hover-elevate">
               <div className="text-xs text-muted-foreground">Reverse lookup</div>
               <div className="font-medium mt-1">{ad.formatted} → BS</div>
             </Link>
-          )}
-        </section>
+          </section>
+        )}
       </div>
     </>
   );

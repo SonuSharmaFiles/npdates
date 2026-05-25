@@ -30,7 +30,40 @@ export default function NotFound() {
         >
           BS to AD Converter
         </Link>
+        <Link
+          href="/ad-to-bs-converter"
+          className="inline-flex items-center justify-center rounded-md border border-input px-5 py-2.5 text-sm font-medium hover:bg-accent transition-colors"
+        >
+          AD to BS Converter
+        </Link>
       </div>
+
+      {/* Additional links to help crawlers discover valid pages */}
+      <nav className="mt-12 max-w-lg mx-auto">
+        <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
+          Popular pages
+        </h2>
+        <div className="grid grid-cols-2 gap-2 text-sm">
+          <Link href="/today-nepali-date" className="p-3 rounded-lg border hover:bg-accent transition-colors">
+            Today&apos;s Nepali Date
+          </Link>
+          <Link href="/age-calculator" className="p-3 rounded-lg border hover:bg-accent transition-colors">
+            Age Calculator
+          </Link>
+          <Link href="/date-difference" className="p-3 rounded-lg border hover:bg-accent transition-colors">
+            Date Difference
+          </Link>
+          <Link href="/fiscal-year-converter" className="p-3 rounded-lg border hover:bg-accent transition-colors">
+            Fiscal Year Converter
+          </Link>
+          <Link href="/blog" className="p-3 rounded-lg border hover:bg-accent transition-colors">
+            Blog
+          </Link>
+          <Link href="/about" className="p-3 rounded-lg border hover:bg-accent transition-colors">
+            About
+          </Link>
+        </div>
+      </nav>
     </section>
   );
 }

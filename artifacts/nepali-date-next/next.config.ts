@@ -9,8 +9,11 @@ const nextConfig: NextConfig = {
   // Image tags still work, but they're served as-is.
   images: { unoptimized: true },
 
-  // Always emit URLs without trailing slashes for SEO consistency.
-  trailingSlash: false,
+  // GitHub Pages serves directory-based index.html files natively.
+  // With trailing slashes, Next.js generates `/page/index.html` which GitHub Pages
+  // resolves correctly for both `/page` and `/page/`. Without trailing slashes,
+  // Next.js generates `page.html` which causes 404s when crawlers request `/page/`.
+  trailingSlash: true,
 
   reactStrictMode: true,
   poweredByHeader: false,

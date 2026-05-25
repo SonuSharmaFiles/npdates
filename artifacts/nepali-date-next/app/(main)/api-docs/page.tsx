@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = buildMetadata({
   title: "Nepali Date Converter API — Public REST Endpoints",
   description:
-    "Free public API for Nepali date conversion. Convert BS↔AD, fetch the calendar, festivals and Nepal fiscal year programmatically. JSON, no auth required.",
+    "Free public API for Nepali date conversion. Convert BS↔AD and fetch the Nepal fiscal year programmatically. JSON, no auth required.",
   path: "/api-docs",
   keywords: ["Nepali date API", "BS to AD API", "Bikram Sambat API", "REST converter"],
 });
@@ -39,18 +39,6 @@ const ENDPOINTS: Endpoint[] = [
   },
   {
     method: "GET",
-    path: "/api/calendar/{year}/{month}",
-    summary: "Full BS month grid with festivals and AD mappings",
-    example: `curl '${SITE_URL}/api/calendar/2082/6'`,
-  },
-  {
-    method: "GET",
-    path: "/api/festivals/{year}",
-    summary: "Festivals and public holidays for a BS year",
-    example: `curl '${SITE_URL}/api/festivals/2082'`,
-  },
-  {
-    method: "GET",
     path: "/api/fiscal-year/{year}",
     summary: "Nepal fiscal year window for a starting BS year",
     example: `curl '${SITE_URL}/api/fiscal-year/2082'`,
@@ -67,7 +55,7 @@ export default function ApiDocsPage() {
           Public Conversion API
         </h1>
         <p className="text-muted-foreground mt-3 text-lg">
-          Drop-in REST API for BS↔AD conversion, calendar grids, festivals and fiscal year. JSON
+          Drop-in REST API for BS↔AD conversion and Nepal fiscal year lookups. JSON
           responses, no API key required.
         </p>
       </header>

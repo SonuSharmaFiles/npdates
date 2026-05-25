@@ -15,7 +15,10 @@ type PageMetaInput = {
 
 export function buildMetadata(input: PageMetaInput): Metadata {
   const path = input.path ?? "/";
-  const url = `${SITE_URL}${path}`;
+  // Ensure canonical URLs always have trailing slashes (matching next.config trailingSlash: true).
+  // The root "/" already ends with a slash; all other paths get one appended.
+  const normalizedPath = path === "/" ? path : path.replace(/\/$/, "") + "/";
+  const url = `${SITE_URL}${normalizedPath}`;
   const image = input.image ?? SITE.ogImage;
   const fullTitle =
     path === "/" ? input.title : `${input.title} — ${SITE.name}`;

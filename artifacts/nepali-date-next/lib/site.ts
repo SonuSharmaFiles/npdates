@@ -4,9 +4,9 @@ export const SITE_URL =
 export const SITE = {
   name: "npdates",
   url: SITE_URL,
-  title: "Nepali Date Converter — BS ↔ AD, Calendar & Festivals",
+  title: "Nepali Date Converter — BS ↔ AD",
   description:
-    "Convert Bikram Sambat (BS) ↔ Gregorian (AD) instantly. Today's Nepali date, Nepali calendar, festivals, fiscal year and date difference — fast, accurate and free.",
+    "Convert Bikram Sambat (BS) ↔ Gregorian (AD) instantly. Today's Nepali date, age calculator, date difference and fiscal year — fast, accurate and free.",
   locale: "en_US",
   twitterHandle: "@npdates",
   ogImage: `${SITE_URL}/opengraph.jpg`,
@@ -15,9 +15,10 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: "/bs-to-ad-converter", label: "Converters" },
-  { href: "/nepali-calendar", label: "Calendar" },
+  { href: "/bs-to-ad-converter", label: "BS to AD" },
+  { href: "/ad-to-bs-converter", label: "AD to BS" },
   { href: "/today-nepali-date", label: "Today" },
-  { href: "/festivals", label: "Festivals" },
+  { href: "/age-calculator", label: "Age Calculator" },
+  { href: "/date-difference", label: "Date Difference" },
   { href: "/blog", label: "Blog" },
 ] as const;
