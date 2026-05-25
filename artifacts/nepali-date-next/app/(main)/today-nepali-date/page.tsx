@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MapPin, Sunrise } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbLd } from "@/components/seo/JsonLd";
@@ -6,11 +7,20 @@ import { getTodayInKathmandu } from "@/lib/converter";
 import { KathmanduClock } from "@/components/today/KathmanduClock";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Today's Nepali Date",
+  title: "Today's Nepali Date (BS) — Aja Ko Miti, Live in Kathmandu Time",
   description:
-    "What is today's Nepali date in Bikram Sambat (BS)? Get the current Nepali date, weekday and equivalent Gregorian (AD) date — Kathmandu time (UTC+5:45).",
+    "What is today's Nepali date? Live Bikram Sambat (BS) date with weekday, Gregorian (AD) equivalent and Asia/Kathmandu clock — always day-accurate, always up to date.",
   path: "/today-nepali-date",
-  keywords: ["today Nepali date", "aja ko miti", "current BS date", "Nepali calendar today"],
+  keywords: [
+    "today Nepali date",
+    "aja ko miti",
+    "current BS date",
+    "Nepali date today",
+    "today Bikram Sambat",
+    "Nepali calendar today",
+    "Kathmandu time",
+    "today miti",
+  ],
 });
 
 export default function TodayPage() {
@@ -61,6 +71,37 @@ export default function TodayPage() {
           <KathmanduClock />
         </div>
       </div>
+
+      <section className="mt-14 max-w-3xl prose prose-neutral dark:prose-invert">
+        <h2>About today's Nepali date</h2>
+        <p>
+          The Bikram Sambat (BS) date shown above is calculated live in <strong>Asia/Kathmandu</strong>{" "}
+          time (UTC+5:45). That matters because the day rolls over in Nepal up to 13 hours and 45
+          minutes before it does in places like Los Angeles, so a website serving the "current
+          Nepali date" needs to anchor itself to Kathmandu, not the visitor's local clock.
+        </p>
+        <p>
+          The Bikram Sambat calendar is Nepal's official solar calendar — roughly 56 years and 8
+          months ahead of the Gregorian (AD) calendar. Months range from 29 to 32 days and the
+          year begins on <strong>1 Baisakh</strong>, around mid-April. Today's BS date is the same
+          one printed on every Nepali patro, citizenship card and government form for this day.
+        </p>
+        <h2>How is today's date calculated?</h2>
+        <p>
+          The current moment in Asia/Kathmandu is converted to its BS equivalent using a verified
+          epoch (1 Baisakh 1970 BS = 13 April 1913 AD) and a per-year month-length table covering
+          BS 1970 through 2099. The weekday is the same as the underlying Gregorian weekday — both
+          calendars share the same seven-day week.
+        </p>
+        <h2>Need to convert another date?</h2>
+        <p>
+          To convert any specific BS or AD date, use the{" "}
+          <Link href="/">BS to AD converter</Link> on the homepage or the{" "}
+          <Link href="/ad-to-bs-converter/">AD to BS converter</Link>. To calculate exact age, see
+          the <Link href="/age-calculator/">age calculator</Link>. For the gap between two dates,
+          use the <Link href="/date-difference/">date difference calculator</Link>.
+        </p>
+      </section>
     </div>
   );
 }

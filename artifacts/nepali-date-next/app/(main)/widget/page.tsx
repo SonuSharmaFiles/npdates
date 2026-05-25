@@ -4,11 +4,18 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { EmbedSnippet } from "@/components/widget/EmbedSnippet";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Embed the Nepali Date Converter on your site",
+  title: "Embed the Nepali Date Converter — Free BS ↔ AD Widget for Your Site",
   description:
-    "Paste a single iframe snippet to embed the npdates Nepali date converter on your website, blog or intranet. Free, lightweight and accurate.",
+    "Paste one iframe snippet to add a free Nepali BS ↔ AD date converter to any website, blog, intranet or product. Lightweight, day-accurate, no setup.",
   path: "/widget",
-  keywords: ["embed Nepali date converter", "BS AD widget", "iframe Nepali calendar"],
+  keywords: [
+    "embed Nepali date converter",
+    "BS AD widget",
+    "Nepali date iframe",
+    "Bikram Sambat widget",
+    "Nepali calendar embed",
+    "date converter plugin",
+  ],
 });
 
 export default function WidgetPage() {

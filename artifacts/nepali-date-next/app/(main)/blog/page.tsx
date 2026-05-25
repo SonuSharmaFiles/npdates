@@ -5,10 +5,11 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { BLOG_POSTS } from "@/data/blog-posts";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Blog — Guides, conversion tips and Bikram Sambat explainers",
+  title: "Nepali Date Blog — BS ↔ AD Conversion Guides, Patro Explainers & Tips",
   description:
-    "In-depth guides on Bikram Sambat and date conversion best practices.",
+    "In-depth guides on Bikram Sambat: BS↔AD conversion, the Nepali patro, fiscal year, festivals, age calculation and practical tips for forms, visas and admissions.",
   path: "/blog",
+  keywords: ["Nepali date blog", "Bikram Sambat guide", "BS to AD guide", "Nepali patro"],
 });
 
 export default function BlogIndex() {

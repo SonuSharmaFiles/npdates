@@ -4,8 +4,8 @@ import { ConverterCard } from "@/components/converter/ConverterCard";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Nepali Date Converter — Embedded",
-  description: "Embeddable Nepali (Bikram Sambat) ↔ AD date converter widget.",
+  title: "Nepali Date Converter — Embedded Widget",
+  description: "Embeddable Nepali (Bikram Sambat) ↔ Gregorian (AD) date converter widget for iframe use.",
   path: "/embed",
   noIndex: true,
 });

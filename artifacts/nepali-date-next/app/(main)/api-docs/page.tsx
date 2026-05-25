@@ -4,11 +4,19 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Nepali Date Converter API — Public REST Endpoints",
+  title: "Nepali Date Converter API — Free Public REST Endpoints (BS ↔ AD)",
   description:
-    "Free public API for Nepali date conversion. Convert BS↔AD programmatically. JSON, no auth required.",
+    "Free public REST API for Nepali date conversion. Convert BS to AD and AD to BS programmatically — JSON responses, no API key, day-accurate across BS 1970–2099.",
   path: "/api-docs",
-  keywords: ["Nepali date API", "BS to AD API", "Bikram Sambat API", "REST converter"],
+  keywords: [
+    "Nepali date API",
+    "BS to AD API",
+    "AD to BS API",
+    "Bikram Sambat API",
+    "Nepali calendar API",
+    "REST converter Nepal",
+    "free date conversion API",
+  ],
 });
 
 interface Endpoint {

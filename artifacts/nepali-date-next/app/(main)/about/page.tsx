@@ -4,10 +4,11 @@ import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About npdates — The Nepali Date Toolkit",
+  title: "About npdates — The Free Nepali (BS ↔ AD) Date Toolkit",
   description:
-    "npdates is a fast, accurate Nepali date converter and calendar toolkit. Learn what powers it and our commitment to data quality.",
+    "npdates is a fast, free Nepali date converter and toolkit covering BS ↔ AD conversion, age calculation, date difference and developer APIs. Learn what powers it.",
   path: "/about",
+  keywords: ["about npdates", "Nepali date toolkit", "BS AD converter", "Bikram Sambat tools"],
 });
 
 export default function AboutPage() {
