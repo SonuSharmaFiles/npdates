@@ -1,11 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { BLOG_POSTS } from "@/data/blog-posts";
-import { getDaysInBsMonth } from "@/lib/converter";
-import {
-  BS_LANDING_YEARS as SHARED_BS,
-  AD_LANDING_YEARS as SHARED_AD,
-} from "@/lib/pre-render-years";
 
 export const dynamic = "force-static";
 
@@ -22,9 +17,6 @@ const STATIC_ROUTES: { path: string; priority: number; changefreq: MetadataRoute
   { path: "/blog/",                   priority: 0.85, changefreq: "weekly"  },
   { path: "/about/",                  priority: 0.5,  changefreq: "yearly"  },
 ];
-
-const BS_LANDING_YEARS = SHARED_BS;
-const AD_LANDING_YEARS = SHARED_AD;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date();
@@ -45,25 +37,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (let y = 2075; y <= 2089; y++) {
     entries.push({ url: `${SITE_URL}/fiscal-year/${y}/`, lastModified: today, changeFrequency: "yearly", priority: 0.75 });
-  }
-
-  // High-volume programmatic SEO: every BS↔AD day for nearby years
-  for (const y of BS_LANDING_YEARS) {
-    for (let m = 1; m <= 12; m++) {
-      const days = getDaysInBsMonth(y, m);
-      for (let d = 1; d <= days; d++) {
-        entries.push({ url: `${SITE_URL}/bs-to-ad/${y}/${m}/${d}/`, lastModified: today, changeFrequency: "yearly", priority: 0.55 });
-      }
-    }
-  }
-  for (const y of AD_LANDING_YEARS) {
-    const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    if (y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0)) monthDays[1] = 29;
-    for (let m = 1; m <= 12; m++) {
-      for (let d = 1; d <= monthDays[m - 1]; d++) {
-        entries.push({ url: `${SITE_URL}/ad-to-bs/${y}/${m}/${d}/`, lastModified: today, changeFrequency: "yearly", priority: 0.55 });
-      }
-    }
   }
 
   return entries;
