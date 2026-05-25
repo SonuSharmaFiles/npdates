@@ -18,8 +18,18 @@ interface HistoryItem {
   timestamp: number;
 }
 
-export function ConverterCard({ initialDirection = "BS_TO_AD" }: { initialDirection?: Direction }) {
-  const [direction, setDirection] = useState<Direction>(initialDirection);
+export function ConverterCard({
+  initialDirection = "BS_TO_AD",
+  onDirectionChange,
+}: {
+  initialDirection?: Direction;
+  onDirectionChange?: (dir: Direction) => void;
+}) {
+  const [direction, setDirectionState] = useState<Direction>(initialDirection);
+  const setDirection = (dir: Direction) => {
+    setDirectionState(dir);
+    onDirectionChange?.(dir);
+  };
 
   const today = getTodayInKathmandu();
   const [bsDate, setBsDate] = useState({ year: today.bs.year, month: today.bs.month, day: today.bs.day });
@@ -77,7 +87,7 @@ export function ConverterCard({ initialDirection = "BS_TO_AD" }: { initialDirect
   };
 
   const switchDirection = () => {
-    setDirection((prev) => (prev === "BS_TO_AD" ? "AD_TO_BS" : "BS_TO_AD"));
+    setDirection(direction === "BS_TO_AD" ? "AD_TO_BS" : "BS_TO_AD");
   };
 
   return (

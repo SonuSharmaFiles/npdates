@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbLd } from "@/components/seo/JsonLd";
-import { ConverterCard } from "@/components/converter/ConverterCard";
+import { HomeConverter } from "@/components/converter/HomeConverter";
 
 export const metadata: Metadata = buildMetadata({
   title: "BS to AD Converter — Nepali Date to Gregorian | npdates",
@@ -16,18 +16,7 @@ export default function HomePage() {
     <div className="container mx-auto px-4 py-12 md:py-20 max-w-4xl">
       <JsonLd data={breadcrumbLd([{ name: "Home", path: "/" }])} />
 
-      <header className="mb-10">
-        <h1 className="font-serif text-3xl md:text-5xl font-bold mb-4 text-foreground">
-          BS to AD Converter
-        </h1>
-        <p className="text-lg text-muted-foreground">
-          Convert Nepali dates (Bikram Sambat) to English dates (Gregorian) with absolute precision.
-        </p>
-      </header>
-
-      <div className="mb-16">
-        <ConverterCard initialDirection="BS_TO_AD" />
-      </div>
+      <HomeConverter />
 
       <article className="prose prose-slate dark:prose-invert prose-headings:font-serif prose-headings:font-bold max-w-none">
         <h2>How does the Bikram Sambat calendar work?</h2>
