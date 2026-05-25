@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { useRouter } from "next/navigation";
 import { BsDateSelector } from "./BsDateSelector";
 import { AdDateSelector } from "./AdDateSelector";
 import { bsToAd, adToBs, getTodayInKathmandu, type ConversionResult } from "@/lib/converter";
@@ -20,7 +19,6 @@ interface HistoryItem {
 }
 
 export function ConverterCard({ initialDirection = "BS_TO_AD" }: { initialDirection?: Direction }) {
-  const router = useRouter();
   const [direction, setDirection] = useState<Direction>(initialDirection);
 
   const today = getTodayInKathmandu();
@@ -72,6 +70,7 @@ export function ConverterCard({ initialDirection = "BS_TO_AD" }: { initialDirect
       ? `${result.bs.formatted} = ${result.ad.formatted}`
       : `${result.ad.formatted} = ${result.bs.formatted}`;
     navigator.clipboard.writeText(text);
+    addToHistory(result, direction);
     setCopied(true);
     toast.success("Copied to clipboard!");
     setTimeout(() => setCopied(false), 2000);
@@ -79,16 +78,6 @@ export function ConverterCard({ initialDirection = "BS_TO_AD" }: { initialDirect
 
   const switchDirection = () => {
     setDirection((prev) => (prev === "BS_TO_AD" ? "AD_TO_BS" : "BS_TO_AD"));
-  };
-
-  const handleNavigate = () => {
-    if (!result) return;
-    addToHistory(result, direction);
-    if (direction === "BS_TO_AD") {
-      router.push(`/bs-to-ad/${result.bs.year}/${result.bs.month}/${result.bs.day}`);
-    } else {
-      router.push(`/ad-to-bs/${result.ad.year}/${result.ad.month}/${result.ad.day}`);
-    }
   };
 
   return (
@@ -152,12 +141,11 @@ export function ConverterCard({ initialDirection = "BS_TO_AD" }: { initialDirect
                 <span>{direction === "BS_TO_AD" ? result.ad.weekdayName : `${result.bs.weekdayNameNepali} / ${result.bs.weekdayName}`}</span>
               </div>
 
-              <div className="mt-6 flex justify-center gap-3">
+              <div className="mt-6 flex justify-center">
                 <Button variant="outline" onClick={handleCopy} className="gap-2">
                   {copied ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                   {copied ? "Copied" : "Copy"}
                 </Button>
-                <Button onClick={handleNavigate} className="gap-2">View Details</Button>
               </div>
             </>
           ) : (
