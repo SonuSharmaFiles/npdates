@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbLd } from "@/components/seo/JsonLd";
 import { ConverterCard } from "@/components/converter/ConverterCard";
@@ -43,12 +42,6 @@ export default function HomePage() {
           formula. Accurate conversion requires historical lookup tables published annually by the
           government. Our converter uses the official Panjika data to ensure 100% accuracy.
         </p>
-
-        <h3>Common conversions</h3>
-        <ul>
-          <li><Link href="/bs-to-ad/2082/1/1">Nepali New Year 2082</Link></li>
-          <li><Link href="/ad-to-bs-converter">Convert AD to BS instead</Link></li>
-        </ul>
       </article>
     </div>
   );
