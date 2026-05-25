@@ -14,7 +14,6 @@ const FOOTER_GROUPS = [
     title: "Tools",
     links: [
       { href: "/today-nepali-date", label: "Today's Date" },
-      { href: "/fiscal-year-converter", label: "Fiscal Year" },
       { href: "/widget", label: "Widgets" },
       { href: "/api-docs", label: "API" },
     ],

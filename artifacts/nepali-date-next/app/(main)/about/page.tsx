@@ -43,7 +43,6 @@ export default function AboutPage() {
           <li><Link href="/today-nepali-date">See today's Nepali date</Link></li>
           <li><Link href="/age-calculator">Calculate age from a BS or AD birth date</Link></li>
           <li><Link href="/date-difference">Find the difference between two dates</Link></li>
-          <li><Link href="/fiscal-year-converter">Look up Nepal's fiscal year</Link></li>
           <li><Link href="/api-docs">Use the public conversion API</Link></li>
           <li><Link href="/widget">Embed the converter on your site</Link></li>
         </ul>

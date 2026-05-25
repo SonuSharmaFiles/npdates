@@ -101,7 +101,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>The federal budget is traditionally presented to parliament on <strong>15 Jestha</strong> — about six weeks before the FY starts. This gives ministries time to prepare programmes for the new fiscal year.</p>
 
 <h2>Finding the FY for a date</h2>
-<p>Use the <a href="/fiscal-year-converter/">fiscal year converter</a> to look up the FY for any BS or AD date.</p>
+<p>Once you know the start month (Shrawan) of a BS year, the fiscal year window is fixed: it always runs to the last day of Ashadh the following BS year.</p>
 `,
   },
   {
@@ -169,7 +169,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Highlights include Buddha Jayanti, Janai Purnima, Krishna Janmashtami, Teej, Dashain (Vijaya Dashami in Ashwin), Tihar in Kartik, Maha Shivaratri in Falgun and Holi.</p>
 
 <h2>Fiscal year</h2>
-<p>FY 2082/83 starts on 1 Shrawan 2082 (3 August 2025 AD) and ends on the last day of Ashadh 2083 (mid-July 2026 AD). See <a href="/fiscal-year/2082">FY 2082/83 details</a>.</p>
+<p>FY 2082/83 starts on 1 Shrawan 2082 (3 August 2025 AD) and ends on the last day of Ashadh 2083 (mid-July 2026 AD).</p>
 `,
   },
   {

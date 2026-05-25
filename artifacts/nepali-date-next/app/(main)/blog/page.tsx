@@ -7,7 +7,7 @@ import { BLOG_POSTS } from "@/data/blog-posts";
 export const metadata: Metadata = buildMetadata({
   title: "Blog — Guides, conversion tips and Bikram Sambat explainers",
   description:
-    "In-depth guides on Bikram Sambat, fiscal year and date conversion best practices.",
+    "In-depth guides on Bikram Sambat and date conversion best practices.",
   path: "/blog",
 });
 
@@ -23,7 +23,7 @@ export default function BlogIndex() {
       <header className="mt-6">
         <h1 className="text-4xl md:text-5xl font-serif font-bold">Blog</h1>
         <p className="mt-3 text-muted-foreground max-w-2xl">
-          Guides and explainers on Nepali dates, fiscal year and date conversion.
+          Guides and explainers on Nepali dates and date conversion.
         </p>
       </header>
 

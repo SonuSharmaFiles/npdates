@@ -6,7 +6,7 @@ export const SITE = {
   url: SITE_URL,
   title: "Nepali Date Converter — BS ↔ AD",
   description:
-    "Convert Bikram Sambat (BS) ↔ Gregorian (AD) instantly. Today's Nepali date, age calculator, date difference and fiscal year — fast, accurate and free.",
+    "Convert Bikram Sambat (BS) ↔ Gregorian (AD) instantly. Today's Nepali date, age calculator and date difference — fast, accurate and free.",
   locale: "en_US",
   twitterHandle: "@npdates",
   ogImage: `${SITE_URL}/opengraph.jpg`,

@@ -245,28 +245,6 @@ export function getCalendarMonth(
   };
 }
 
-export interface FiscalYearWindow {
-  label: string;
-  startBs: NepaliDate;
-  endBs: NepaliDate;
-  startAd: GregorianDate;
-  endAd: GregorianDate;
-}
-
-export function getFiscalYear(startBsYear: number): FiscalYearWindow {
-  const start = bsToAd(startBsYear, 4, 1);
-  const endMonthDays = getDaysInBsMonth(startBsYear + 1, 3);
-  const end = bsToAd(startBsYear + 1, 3, endMonthDays);
-  const shortEnd = String(startBsYear + 1).slice(-2);
-  return {
-    label: `FY ${startBsYear}/${shortEnd}`,
-    startBs: start.bs,
-    endBs: end.bs,
-    startAd: start.ad,
-    endAd: end.ad,
-  };
-}
-
 export function dateDifferenceDays(fromIso: string, toIso: string): number {
   const a = new Date(fromIso + "T00:00:00Z");
   const b = new Date(toIso + "T00:00:00Z");

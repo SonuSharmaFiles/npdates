@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { CalendarDays, MapPin, Sunrise } from "lucide-react";
+import { MapPin, Sunrise } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbLd } from "@/components/seo/JsonLd";
-import { getTodayInKathmandu, getFiscalYear } from "@/lib/converter";
+import { getTodayInKathmandu } from "@/lib/converter";
 import { KathmanduClock } from "@/components/today/KathmanduClock";
 
 export const metadata: Metadata = buildMetadata({
@@ -15,10 +15,6 @@ export const metadata: Metadata = buildMetadata({
 
 export default function TodayPage() {
   const today = getTodayInKathmandu();
-
-  // Nepali fiscal year starts on 1 Shrawan (month 4); months 1-3 belong to the previous FY
-  const fyStart = today.bs.month >= 4 ? today.bs.year : today.bs.year - 1;
-  const fiscalYear = getFiscalYear(fyStart);
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-5xl">
@@ -63,18 +59,6 @@ export default function TodayPage() {
 
         <div className="md:col-span-2 space-y-6">
           <KathmanduClock />
-
-          <div className="bg-card border rounded-2xl p-6 shadow-sm hover-elevate">
-            <div className="flex items-center gap-3 text-muted-foreground mb-4">
-              <CalendarDays className="w-5 h-5" />
-              <h3 className="font-medium">Fiscal Year</h3>
-            </div>
-            <div className="text-2xl font-bold font-serif mb-1">{fiscalYear.label}</div>
-            <div className="text-sm text-muted-foreground">
-              Ends {fiscalYear.endBs.formatted}
-            </div>
-          </div>
-
         </div>
       </div>
     </div>

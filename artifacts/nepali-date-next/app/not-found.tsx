@@ -47,9 +47,6 @@ export default function NotFound() {
           <Link href="/date-difference" className="p-3 rounded-lg border hover:bg-accent transition-colors">
             Date Difference
           </Link>
-          <Link href="/fiscal-year-converter" className="p-3 rounded-lg border hover:bg-accent transition-colors">
-            Fiscal Year Converter
-          </Link>
           <Link href="/blog" className="p-3 rounded-lg border hover:bg-accent transition-colors">
             Blog
           </Link>

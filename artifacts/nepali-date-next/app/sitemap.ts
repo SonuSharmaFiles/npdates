@@ -11,7 +11,6 @@ const STATIC_ROUTES: { path: string; priority: number; changefreq: MetadataRoute
   { path: "/today-nepali-date/",      priority: 0.9,  changefreq: "daily"   },
   { path: "/age-calculator/",         priority: 0.85, changefreq: "monthly" },
   { path: "/date-difference/",        priority: 0.85, changefreq: "monthly" },
-  { path: "/fiscal-year-converter/",  priority: 0.85, changefreq: "monthly" },
   { path: "/api-docs/",               priority: 0.7,  changefreq: "monthly" },
   { path: "/widget/",                 priority: 0.7,  changefreq: "monthly" },
   { path: "/blog/",                   priority: 0.85, changefreq: "weekly"  },
@@ -33,10 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     });
-  }
-
-  for (let y = 2075; y <= 2089; y++) {
-    entries.push({ url: `${SITE_URL}/fiscal-year/${y}/`, lastModified: today, changeFrequency: "yearly", priority: 0.75 });
   }
 
   return entries;
