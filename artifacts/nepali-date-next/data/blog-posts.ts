@@ -27,7 +27,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Nepal officially adopted Bikram Sambat as its national calendar in 1903 AD (1960 BS). Unlike India, which reverted to Gregorian for civic use, Nepal kept BS in administrative and ceremonial roles. This is partly due to its astronomical accuracy (it is a sidereal solar calendar), and partly due to cultural identity.</p>
 
 <h2>Common conversion confusion</h2>
-<p>Many newcomers assume that adding 56 or 57 to an AD year always gives the correct BS year — this is only roughly correct. Because the BS new year falls in mid-April, dates between January and mid-April have a different offset than dates after mid-April. For example, 1 January 2026 AD is 17 Poush 2082 BS, not 2083 BS. Use a real <a href="/ad-to-bs-converter">AD to BS converter</a> rather than naive year arithmetic.</p>
+<p>Many newcomers assume that adding 56 or 57 to an AD year always gives the correct BS year — this is only roughly correct. Because the BS new year falls in mid-April, dates between January and mid-April have a different offset than dates after mid-April. For example, 1 January 2026 AD is 17 Poush 2082 BS, not 2083 BS. Use a real <a href="/ad-to-bs-converter/">AD to BS converter</a> rather than naive year arithmetic.</p>
 
 <h2>Where you'll see BS in daily life</h2>
 <p>Citizenship cards, passports, school certificates, government tenders, and tax filings in Nepal all use BS dates. Knowing how to convert quickly between the two systems is a practical necessity.</p>
@@ -101,7 +101,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>The federal budget is traditionally presented to parliament on <strong>15 Jestha</strong> — about six weeks before the FY starts. This gives ministries time to prepare programmes for the new fiscal year.</p>
 
 <h2>Finding the FY for a date</h2>
-<p>Use the <a href="/fiscal-year-converter">fiscal year converter</a> to look up the FY for any BS or AD date.</p>
+<p>Use the <a href="/fiscal-year-converter/">fiscal year converter</a> to look up the FY for any BS or AD date.</p>
 `,
   },
   {
@@ -191,7 +191,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Cross-check with your existing documents</h2>
 <p>If you already have a citizenship card or passport with your DOB in BS, double-check that your new form uses the same BS date. Inconsistencies between documents are the most common cause of rejected applications.</p>
 
-<p>The fastest way to get an authoritative BS date is the <a href="/ad-to-bs-converter">AD to BS converter</a>.</p>
+<p>The fastest way to get an authoritative BS date is the <a href="/ad-to-bs-converter/">AD to BS converter</a>.</p>
 `,
   },
   {
@@ -496,7 +496,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>In the Gregorian calendar, month lengths are almost fixed (28–31 days) so simple arithmetic is predictable. In Bikram Sambat, month lengths vary from 29 to 32 days and the lengths themselves change from year to year. You cannot reliably count by saying "three months = 90 days" in BS — it might be 88 or 93 depending on which months are involved.</p>
 
 <h2>How the date-difference tool works</h2>
-<p>The <a href="/date-difference">date-difference calculator</a> converts both input BS dates to a day count from the same epoch, then subtracts. The result is always exact regardless of month boundaries or year boundaries. The tool also breaks down the span into years, months and remaining days for readability.</p>
+<p>The <a href="/date-difference/">date-difference calculator</a> converts both input BS dates to a day count from the same epoch, then subtracts. The result is always exact regardless of month boundaries or year boundaries. The tool also breaks down the span into years, months and remaining days for readability.</p>
 
 <h2>Working with durations across the new year</h2>
 <p>A common source of confusion: a duration that spans 1 Baisakh. The year changes but the day count is continuous — 30 Chaitra 2082 and 1 Baisakh 2083 are consecutive days, just as 31 December and 1 January are in the Gregorian calendar. The date-difference tool handles this correctly regardless of year boundary.</p>

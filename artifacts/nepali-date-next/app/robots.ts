@@ -17,7 +17,8 @@ export default function robots(): MetadataRoute.Robots {
           // ── BS-to-AD: block years we don't pre-render ──
           // Only years 2080–2085 are pre-rendered; block everything else
           "/bs-to-ad/19",    // 19xx years
-          "/bs-to-ad/20",    // bare /bs-to-ad/20 (not a valid page)
+          // NOTE: do NOT add "/bs-to-ad/20" — robots.txt uses prefix matching,
+          // so that rule would block the pre-rendered /bs-to-ad/2080..2085 pages.
           "/bs-to-ad/200",   // 200x years
           "/bs-to-ad/201",   // 201x years
           "/bs-to-ad/202",   // 202x years

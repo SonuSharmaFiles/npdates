@@ -38,7 +38,7 @@ export default function AboutPage() {
         </p>
         <h2>What you can do here</h2>
         <ul>
-          <li><Link href="/bs-to-ad-converter">Convert BS to AD</Link></li>
+          <li><Link href="/">Convert BS to AD</Link></li>
           <li><Link href="/ad-to-bs-converter">Convert AD to BS</Link></li>
           <li><Link href="/today-nepali-date">See today's Nepali date</Link></li>
           <li><Link href="/age-calculator">Calculate age from a BS or AD birth date</Link></li>
