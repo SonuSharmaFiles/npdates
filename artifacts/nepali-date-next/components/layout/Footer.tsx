@@ -4,7 +4,7 @@ const FOOTER_GROUPS = [
   {
     title: "Converters",
     links: [
-      { href: "/bs-to-ad-converter", label: "BS to AD" },
+      { href: "/", label: "BS to AD" },
       { href: "/ad-to-bs-converter", label: "AD to BS" },
       { href: "/age-calculator", label: "Age Calculator" },
       { href: "/date-difference", label: "Date Difference" },

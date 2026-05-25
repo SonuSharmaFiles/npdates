@@ -12,7 +12,6 @@ export const dynamic = "force-static";
 // All paths include trailing slashes to match next.config trailingSlash: true.
 const STATIC_ROUTES: { path: string; priority: number; changefreq: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
   { path: "/",                        priority: 1.0,  changefreq: "daily"   },
-  { path: "/bs-to-ad-converter/",     priority: 0.95, changefreq: "weekly"  },
   { path: "/ad-to-bs-converter/",     priority: 0.95, changefreq: "weekly"  },
   { path: "/today-nepali-date/",      priority: 0.9,  changefreq: "daily"   },
   { path: "/age-calculator/",         priority: 0.85, changefreq: "monthly" },

@@ -15,7 +15,7 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: "/bs-to-ad-converter", label: "BS to AD" },
+  { href: "/", label: "BS to AD" },
   { href: "/ad-to-bs-converter", label: "AD to BS" },
   { href: "/today-nepali-date", label: "Today" },
   { href: "/age-calculator", label: "Age Calculator" },

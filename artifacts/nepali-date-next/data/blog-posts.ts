@@ -55,7 +55,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>The Bikram Sambat calendar is sidereal solar, meaning month boundaries are tied to the sun crossing zodiac signs. Because the sun's transit doesn't perfectly match calendar days, month lengths shift slightly year to year. There is no closed-form formula that gives the exact length of, say, Baisakh 2087 BS — you have to consult the official patro.</p>
 
 <h2>What our converter does</h2>
-<p>The <a href="/bs-to-ad-converter">npdates BS to AD converter</a> uses an internal table covering BS years 1970 through 2099. For any input date we (a) validate the day is within that month's published length, (b) sum the days from the epoch, and (c) add to the AD epoch. The result is correct to the day, including weekday.</p>
+<p>The <a href="/">npdates BS to AD converter</a> uses an internal table covering BS years 1970 through 2099. For any input date we (a) validate the day is within that month's published length, (b) sum the days from the epoch, and (c) add to the AD epoch. The result is correct to the day, including weekday.</p>
 `,
   },
   {
@@ -279,7 +279,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Although it opens the new calendar year, Baisakh sits in the <em>last quarter</em> of the fiscal year (which ends in Ashadh). Government offices and schools are in the final stretch of the FY 2082/83 budget cycle during this period.</p>
 
 <h2>Converting 1 Baisakh 2083 to AD</h2>
-<p>Use the <a href="/bs-to-ad-converter">BS to AD converter</a> to confirm the exact AD date or look up any other day in the new year.</p>
+<p>Use the <a href="/">BS to AD converter</a> to confirm the exact AD date or look up any other day in the new year.</p>
 `,
   },
   {
@@ -330,7 +330,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>Holi</strong> — Falgun</li>
 </ul>
 
-<p>Use the <a href="/bs-to-ad-converter">BS to AD converter</a> to look up any specific BS 2083 date.</p>
+<p>Use the <a href="/">BS to AD converter</a> to look up any specific BS 2083 date.</p>
 `,
   },
   {
@@ -376,7 +376,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Nepal's citizenship certificates, school-leaving certificates (SLC/SEE) and many official documents record dates in Bikram Sambat. However, passports, visa applications, foreign university forms, and most international services require dates in the Gregorian (AD) calendar. Getting the conversion exactly right matters — a single-day error can invalidate a visa or cause identity verification failures.</p>
 
 <h2>The fast method: use the converter</h2>
-<p>The simplest approach is the <a href="/bs-to-ad-converter">BS to AD converter</a>:</p>
+<p>The simplest approach is the <a href="/">BS to AD converter</a>:</p>
 <ol>
 <li>Find your BS date of birth on your citizenship card or birth certificate.</li>
 <li>Enter the year, month and day.</li>
@@ -457,7 +457,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Your BS DOB appears on your citizenship certificate, your school-leaving (SLC/SEE) certificate, or your birth certificate. If these documents disagree, use the citizenship certificate — it is the primary civil identity document in Nepal.</p>
 
 <h2>Step 2: convert precisely</h2>
-<p>Use the <a href="/bs-to-ad-converter">BS to AD converter</a> to get the exact AD date. Do not use year arithmetic (subtracting 56 or 57) — this fails for dates in January through mid-April.</p>
+<p>Use the <a href="/">BS to AD converter</a> to get the exact AD date. Do not use year arithmetic (subtracting 56 or 57) — this fails for dates in January through mid-April.</p>
 
 <h2>Step 3: match the format required</h2>
 <p>Different visa application systems use different date formats:</p>

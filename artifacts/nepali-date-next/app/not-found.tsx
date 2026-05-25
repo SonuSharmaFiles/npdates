@@ -25,12 +25,6 @@ export default function NotFound() {
           Go home
         </Link>
         <Link
-          href="/bs-to-ad-converter"
-          className="inline-flex items-center justify-center rounded-md border border-input px-5 py-2.5 text-sm font-medium hover:bg-accent transition-colors"
-        >
-          BS to AD Converter
-        </Link>
-        <Link
           href="/ad-to-bs-converter"
           className="inline-flex items-center justify-center rounded-md border border-input px-5 py-2.5 text-sm font-medium hover:bg-accent transition-colors"
         >

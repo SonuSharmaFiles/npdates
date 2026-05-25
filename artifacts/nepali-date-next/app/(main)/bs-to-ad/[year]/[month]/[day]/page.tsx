@@ -78,7 +78,7 @@ export default async function BsToAdLanding({ params }: { params: Promise<Params
         <Breadcrumbs
           items={[
             { name: "Home", path: "/" },
-            { name: "BS to AD", path: "/bs-to-ad-converter" },
+            { name: "BS to AD", path: "/" },
             { name: bs.formatted, path: `/bs-to-ad/${year}/${month}/${day}` },
           ]}
         />
@@ -139,7 +139,7 @@ export default async function BsToAdLanding({ params }: { params: Promise<Params
           <p>{bs.formatted} falls on a <strong>{bs.weekdayName}</strong> ({bs.weekdayNameNepali}).</p>
           <h3>How do I convert other BS dates?</h3>
           <p>
-            Use the <Link href="/bs-to-ad-converter">BS to AD converter</Link> for any other date.
+            Use the <Link href="/">BS to AD converter</Link> for any other date.
           </p>
         </section>
 
