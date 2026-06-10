@@ -9,9 +9,16 @@ export const metadata: Metadata = buildMetadata({
   noIndex: true,
 });
 
+// Static export on GitHub Pages can't issue 308s. For the deleted
+// /ad-to-bs/Y/M/D and /bs-to-ad/Y/M/D landing pages that Google still has
+// indexed, send the client to the homepage before the 404 UI paints.
+// Googlebot follows JS redirects and consolidates them to "/" over time.
+const REDIRECT_SCRIPT = `(function(){var p=location.pathname;if(/^\\/(ad-to-bs|bs-to-ad)\\//.test(p))location.replace('/');})();`;
+
 export default function NotFound() {
   return (
     <section className="container mx-auto px-4 py-24 text-center">
+      <script dangerouslySetInnerHTML={{ __html: REDIRECT_SCRIPT }} />
       <p className="text-sm font-medium text-primary tracking-widest uppercase">404</p>
       <h1 className="mt-3 text-4xl font-serif font-bold md:text-5xl">Page not found</h1>
       <p className="mt-4 text-muted-foreground max-w-md mx-auto">
