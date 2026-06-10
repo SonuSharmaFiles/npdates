@@ -28,8 +28,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: post.title,
     description: post.description,
     path: `/blog/${post.slug}`,
+    image: post.coverImage,
     type: "article",
     publishedTime: post.publishedIso,
+    modifiedTime: post.modifiedIso ?? post.publishedIso,
   });
 }
 
@@ -46,6 +48,8 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           description: post.description,
           slug: post.slug,
           publishedIso: post.publishedIso,
+          modifiedIso: post.modifiedIso,
+          image: post.coverImage,
         })}
       />
 

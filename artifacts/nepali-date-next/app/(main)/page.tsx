@@ -5,7 +5,7 @@ import { JsonLd, breadcrumbLd } from "@/components/seo/JsonLd";
 import { HomeConverter } from "@/components/converter/HomeConverter";
 
 export const metadata: Metadata = buildMetadata({
-  title: "BS to AD Converter — Nepali Date Converter (Bikram Sambat to Gregorian) | npdates",
+  title: "BS to AD Converter — Nepali Date Converter (Bikram Sambat to Gregorian) — npdates",
   description:
     "Free Nepali date converter — switch between Bikram Sambat (BS) and Gregorian (AD) in seconds, with day-accurate weekday, Devanagari numerals, and full BS 1970–2099 coverage.",
   path: "/",
@@ -33,7 +33,7 @@ export default function HomePage() {
       <article className="prose prose-slate dark:prose-invert prose-headings:font-serif prose-headings:font-bold max-w-none">
         <h2>What is the Bikram Sambat calendar?</h2>
         <p>
-          Bikram Sambat (विक्रम सम्बत, abbreviated BS) is the official solar calendar of Nepal. It
+          Bikram Sambat (<span lang="ne">विक्रम सम्बत</span>, abbreviated BS) is the official solar calendar of Nepal. It
           runs roughly 56 years and 8 months ahead of the Gregorian (AD) calendar most of the world
           uses, and the BS new year falls on <strong>1 Baisakh</strong>, around mid-April every
           year. Twelve months — Baisakh, Jestha, Ashadh, Shrawan, Bhadra, Ashwin, Kartik, Mangsir,
@@ -55,7 +55,7 @@ export default function HomePage() {
           to AD to BS conversion with one tap. Every conversion is verified against an internal
           month-length table covering BS 1970 through 2099 (AD 1913 through 2042), with a known
           epoch of 1 Baisakh 1970 BS = 13 April 1913 AD. Numerals can be shown in standard digits
-          or in Devanagari (०–९) for documents that need them.
+          or in Devanagari (<span lang="ne">०–९</span>) for documents that need them.
         </p>
         <h2>When do Nepalis need a BS to AD converter?</h2>
         <p>

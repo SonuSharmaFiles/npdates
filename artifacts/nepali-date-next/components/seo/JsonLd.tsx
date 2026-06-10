@@ -98,18 +98,27 @@ export function articleLd(article: {
   slug: string;
   publishedIso: string;
   modifiedIso?: string;
+  image?: string;
 }) {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
     description: article.description,
-    url: `${SITE_URL}/blog/${article.slug}`,
+    url: `${SITE_URL}/blog/${article.slug}/`,
     datePublished: article.publishedIso,
     dateModified: article.modifiedIso ?? article.publishedIso,
     inLanguage: "en",
+    // Google requires `image` on Article schemas for rich-result eligibility.
+    // Defaults to the site OG image; per-post covers can override.
+    image: {
+      "@type": "ImageObject",
+      url: article.image ?? SITE.ogImage,
+      width: 1200,
+      height: 630,
+    },
     author: { "@id": `${SITE_URL}/#organization` },
     publisher: { "@id": `${SITE_URL}/#organization` },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${article.slug}` },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${article.slug}/` },
   };
 }

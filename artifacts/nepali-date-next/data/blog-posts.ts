@@ -4,6 +4,12 @@ export interface BlogPost {
   description: string;
   readingMinutes: number;
   publishedIso: string;
+  /** When the post was last meaningfully revised. Drives sitemap lastmod
+   *  and Article JSON-LD `dateModified`. Falls back to publishedIso. */
+  modifiedIso?: string;
+  /** Optional per-post cover image (absolute URL). Falls back to SITE.ogImage
+   *  in Article JSON-LD. */
+  coverImage?: string;
   body: string; // Markdown-style HTML
 }
 

@@ -13,10 +13,18 @@ export const metadata: Metadata = buildMetadata({
 export default function EmbedPage() {
   return (
     <div className="min-h-[100dvh] p-4 md:p-6 bg-transparent">
+      {/* Visually hidden but present for screen readers and crawlers — every
+          page should have exactly one h1 even when the page is noindex. */}
+      <h1 className="sr-only">Nepali Date Converter — embeddable widget</h1>
       <ConverterCard />
       <p className="text-[11px] text-muted-foreground text-center mt-3">
         Powered by{" "}
-        <a href={SITE_URL} target="_blank" rel="noopener" className="text-primary hover:underline">
+        <a
+          href={SITE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary hover:underline"
+        >
           npdates
         </a>
       </p>

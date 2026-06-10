@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MapPin, Sunrise } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd, breadcrumbLd } from "@/components/seo/JsonLd";
 import { getTodayInKathmandu } from "@/lib/converter";
 import { KathmanduClock } from "@/components/today/KathmanduClock";
@@ -34,7 +35,13 @@ export default function TodayPage() {
           { name: "Today's Nepali Date", path: "/today-nepali-date" },
         ])}
       />
-      <h1 className="font-serif text-3xl font-bold mb-8">Today in Nepal</h1>
+      <Breadcrumbs
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Today's Nepali Date", path: "/today-nepali-date" },
+        ]}
+      />
+      <h1 className="font-serif text-3xl font-bold mt-6 mb-8">Today in Nepal</h1>
 
       <div className="grid md:grid-cols-5 gap-6">
         <div className="md:col-span-3 bg-card border rounded-2xl shadow-sm p-8 md:p-12 flex flex-col justify-center relative overflow-hidden">
@@ -50,7 +57,7 @@ export default function TodayPage() {
 
             <div className="space-y-2 mb-8">
               <div className="text-xl text-muted-foreground font-medium">
-                {today.bs.weekdayNameNepali} / {today.bs.weekdayName}
+                <span lang="ne">{today.bs.weekdayNameNepali}</span> / {today.bs.weekdayName}
               </div>
               <div className="font-serif text-5xl md:text-7xl font-bold text-foreground tracking-tight">
                 {today.bs.day} {today.bs.monthName}
