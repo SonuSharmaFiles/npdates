@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { BLOG_POSTS } from "@/data/blog-posts";
+
+// Same fallback used on the per-post page — keeps the index visually
+// consistent for posts that haven't supplied their own coverImage yet.
+const DEFAULT_COVER = "/opengraph.jpg";
 
 export const metadata: Metadata = buildMetadata({
   title: "Nepali Date Blog — BS ↔ AD Conversion Guides, Patro Explainers & Tips",
@@ -33,14 +38,28 @@ export default function BlogIndex() {
           <li key={post.slug}>
             <Link
               href={`/blog/${post.slug}`}
-              className="block rounded-xl border bg-card p-6 hover-elevate card-shadow"
+              className="group grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-5 rounded-xl border bg-card p-4 sm:p-5 hover-elevate card-shadow overflow-hidden"
             >
-              <h2 className="text-xl font-semibold">{post.title}</h2>
-              <p className="mt-2 text-muted-foreground">{post.description}</p>
-              <p className="mt-3 text-xs text-muted-foreground">
-                {new Date(post.publishedIso).toLocaleDateString("en-US", { dateStyle: "long" })} ·{" "}
-                {post.readingMinutes} min read
-              </p>
+              {/* Thumbnail. Decorative for screen readers — the link text
+                  carries the article title — so alt="" is correct here. */}
+              <div className="aspect-[1200/630] sm:aspect-square overflow-hidden rounded-lg bg-muted">
+                <Image
+                  src={post.coverImage ?? DEFAULT_COVER}
+                  alt=""
+                  width={400}
+                  height={400}
+                  sizes="(max-width: 640px) 100vw, 160px"
+                  className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                />
+              </div>
+              <div>
+                <h2 className="text-xl font-semibold">{post.title}</h2>
+                <p className="mt-2 text-muted-foreground">{post.description}</p>
+                <p className="mt-3 text-xs text-muted-foreground">
+                  {new Date(post.publishedIso).toLocaleDateString("en-US", { dateStyle: "long" })} ·{" "}
+                  {post.readingMinutes} min read
+                </p>
+              </div>
             </Link>
           </li>
         ))}
